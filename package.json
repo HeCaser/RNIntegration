@@ -4,5 +4,8 @@
   "private": true,
   "scripts": {
     "start": "react-native start"
+  },
+  "dependencies": {
+    "react-native": "^0.71.4"
   }
 }
