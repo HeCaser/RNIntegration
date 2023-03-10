@@ -1,0 +1,43 @@
+# Android project with ReactNative page
+
+- 目的: 实现在原有 Android 项目中引入 RN 开发的页面
+
+## Environment
+- gradle 7.4
+- kotlin 1.7.20
+- Android Studio Dolphin
+
+---
+2022-03-10
+## RN 初认知
+RN 环境初始化，首个 RN 项目（编译 Android App），查看 Demo: https://github.com/HeCaser/RNProjectForAndroid
+
+---
+2022-03-11
+## 现有 Android 项目接入 RN
+
+- 官网：https://reactnative.dev/docs/integration-with-existing-apps
+
+- 细节可参考上面的 Demo
+
+
+1. 新建一个文件夹 RNIntegration , 然后新建一个名为 android 的目录, 把现有 Android 项目放在 android 目录中
+
+2. 添加 JS 依赖: 在 RNIntegration 目录下新建 `package.json` 文件, 内容如下
+
+```
+    {
+      "name": "RNProjectForAndroid",
+      "version": "0.0.1",
+      "private": true,
+      "scripts": {
+        "start": "react-native start"
+      }
+    }
+```
+
+ 在 RNIntegration 目录下执行 `yarn add react-native` 会生成 node_modules 文件夹, 添加进 .gitignore
+
+
+3. 修改 Android 项目
+-
