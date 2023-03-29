@@ -21,9 +21,9 @@ RN 环境初始化，首个 RN 项目（编译 Android App），查看 Demo: htt
 - 细节可参考上面的 Demo
 
 
-1. 新建一个文件夹 RNIntegration , 然后新建一个名为 android 的目录, 把现有 Android 项目放在 android 目录中
+### 1. 新建一个文件夹 RNIntegration , 然后新建一个名为 android 的目录, 把现有 Android 项目放在 android 目录中
 
-2. 添加 JS 依赖: 在 RNIntegration 目录下新建 `package.json` 文件, 内容如下
+### 2. 添加 JS 依赖: 在 RNIntegration 目录下新建 `package.json` 文件, 内容如下
 
 ```
     {
@@ -36,8 +36,15 @@ RN 环境初始化，首个 RN 项目（编译 Android App），查看 Demo: htt
     }
 ```
 
- 在 RNIntegration 目录下执行 `yarn add react-native` 会生成 node_modules 文件夹, 添加进 .gitignore
+ 在 RNIntegration 目录下执行 `yarn add react-native` 会生成 node_modules 文件夹,里面包含构建工程的所有依赖, 添加进 .gitignore
 
 
-3. 修改 Android 项目
--
+### 3. Adding React Native to your app
+
+#### 3.1 Configuring Gradle
+
+ settings.gradle 文件修改
+
+```
+includeBuild('../node_modules/react-native-gradle-plugin')
+```
