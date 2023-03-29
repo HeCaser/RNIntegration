@@ -1,6 +1,6 @@
 # Android project with ReactNative page
 
-- 目的: 实现在原有 Android 项目中引入 RN 开发的页面
+# 目的: 实现在原有 Android 项目中引入 RN 开发的页面
 
 ## Environment
 - gradle 7.4
@@ -8,12 +8,12 @@
 - Android Studio Dolphin
 
 ---
-2022-03-10
+2023-03-10
 ## RN 初认知
 RN 环境初始化，首个 RN 项目（编译 Android App），查看 Demo: https://github.com/HeCaser/RNProjectForAndroid
 
 ---
-2022-03-11
+2023-03-11
 ## 现有 Android 项目接入 RN
 
 - 官网：https://reactnative.dev/docs/integration-with-existing-apps
@@ -48,3 +48,35 @@ RN 环境初始化，首个 RN 项目（编译 Android App），查看 Demo: htt
 ```
 includeBuild('../node_modules/react-native-gradle-plugin')
 ```
+
+
+2023-03-29
+
+build.gradle 文件修改
+> commit 9c4ff90d40fd1100595994f95893fcb800394c25. 其中 com.facebook.react 与 gradle 设置有冲突, 这里先去掉
+
+Enable native modules autolinking
+
+App 权限配置
+
+#### 3.2 Code integration
+
+JS 文件
+>05c6dc6ebc8e3abd6fe155d9c87cce79aa6357c2
+
+Android 文件
+> b95a472eab0b1076b04ce80dab4dbef7c164e6f6
+
+
+### Test your integration
+
+- 启动 metro : `yarn start`
+- Run App
+
+### 成功 load JS 页面
+
+<img  width='120' src='01loadjs.png'>
+
+
+### Creating a release build in Android Studio
+
