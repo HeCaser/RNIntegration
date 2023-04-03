@@ -78,5 +78,17 @@ Android 文件
 <img  width='120' src='01loadjs.png'>
 
 
-### Creating a release build in Android Studio
+---
+2023-04-03
+## 构建 Release 包
 
+### 依赖 react-native-gradle-plugin  + AS  构建
+> 如果 Android Studio 依赖了 react-native-gradle-plugin 以及相关插件 'com.facebook.react' 那么可以直接构建 Release App. (被项目未实现)
+
+### 命令行打包 bundle 构建
+> 本地 Bundle 适用于 Debug Release 等环境
+
+- 执行下面命令生成 Bundle 包放置在 assets 目录下(注意替换自己的路径)
+$ npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+
+- 构建 Release App 
