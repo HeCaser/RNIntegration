@@ -92,3 +92,10 @@ Android 文件
 $ npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
 
 - 构建 Release App 
+
+---
+
+2023-04-04
+## 集成 RN Fragment
+commits: 9664510e0b0a5c05a236d4960664e1c56a468153 0fe1b5bc958558f34706e8b6a7495d8d994456b1
+
