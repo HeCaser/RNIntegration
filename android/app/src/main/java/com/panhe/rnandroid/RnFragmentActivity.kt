@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.facebook.react.ReactFragment
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
+import com.panhe.rnandroid.util.ConstUtil
 
 /**
  * RN 页面依赖 Fragment 加载
@@ -14,7 +15,7 @@ class RnFragmentActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
         setContentView(R.layout.activity_rn_fragment)
 
         val reactNativeFragment = ReactFragment.Builder()
-            .setComponentName("MyReactNativeApp")
+            .setComponentName(ConstUtil.MAIN_REACT_NAME)
             .setLaunchOptions(getLaunchOptions("test message"))
             .build()
 

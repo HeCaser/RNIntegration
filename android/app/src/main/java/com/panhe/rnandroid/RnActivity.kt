@@ -15,6 +15,7 @@ import com.facebook.react.ReactRootView
 import com.facebook.react.common.LifecycleState
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.soloader.SoLoader
+import com.panhe.rnandroid.util.ConstUtil
 
 class RnActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
 
@@ -48,7 +49,7 @@ class RnActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
             .build()
         // The string here (e.g. "MyReactNativeApp") has to match
         // the string in AppRegistry.registerComponent() in index.js
-        reactRootView?.startReactApplication(reactInstanceManager, "MyReactNativeApp", null)
+        reactRootView?.startReactApplication(reactInstanceManager, ConstUtil.MAIN_REACT_NAME, null)
         setContentView(reactRootView)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
