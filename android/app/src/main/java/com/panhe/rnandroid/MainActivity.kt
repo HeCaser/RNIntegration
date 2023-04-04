@@ -13,5 +13,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.tvGoRN).setOnClickListener {
             startActivity(Intent(this@MainActivity,RnActivity::class.java))
         }
+
+        findViewById<View>(R.id.tvGoRNFragment).setOnClickListener {
+            startActivity(Intent(this@MainActivity,RnFragmentActivity::class.java))
+        }
     }
 }
