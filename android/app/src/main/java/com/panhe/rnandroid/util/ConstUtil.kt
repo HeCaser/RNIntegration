@@ -7,4 +7,5 @@ package com.panhe.rnandroid.util
  */
 object ConstUtil {
     const val MAIN_REACT_NAME = "MyReactNativeApp"
+    const val EXCEPTION_REACT_NAME = "RnException"
 }

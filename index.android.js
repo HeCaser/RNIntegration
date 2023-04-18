@@ -1,5 +1,6 @@
 import React from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import RnException from './pages/RnException.js'
 
 const HelloWorld = () => {
   return (
@@ -20,7 +21,5 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent(
-  'MyReactNativeApp',
-  () => HelloWorld,
-);
+AppRegistry.registerComponent( 'MyReactNativeApp', () => HelloWorld, );
+AppRegistry.registerComponent( 'RnException', () => RnException, );

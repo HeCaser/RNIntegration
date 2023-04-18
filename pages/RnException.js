@@ -1,10 +1,10 @@
 import React from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
-const HelloWorld = () => {
+const RnException = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.hello}>Hello World</Text>
+      <Text style={styles.hello}>RnException</Text>
     </View>
   );
 };
@@ -20,7 +20,4 @@ var styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent(
-  'MyReactNativeApp',
-  () => HelloWorld,
-);
+export default RnException
