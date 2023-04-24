@@ -17,6 +17,8 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.soloader.SoLoader
 import com.panhe.rnandroid.util.ConstUtil
 
+const val RN_REGISTER_NAME = "AddView"
+
 class RnActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
 
     companion object {
@@ -26,6 +28,7 @@ class RnActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
 
     private lateinit var reactRootView: ReactRootView
     private lateinit var reactInstanceManager: ReactInstanceManager
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +52,7 @@ class RnActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
             .build()
         // The string here (e.g. "MyReactNativeApp") has to match
         // the string in AppRegistry.registerComponent() in index.js
-        reactRootView?.startReactApplication(reactInstanceManager, ConstUtil.MAIN_REACT_NAME, null)
+        reactRootView?.startReactApplication(reactInstanceManager, RN_REGISTER_NAME, null)
         setContentView(reactRootView)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
