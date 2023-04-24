@@ -46,9 +46,12 @@ class RnExceptionActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
             .setBundleAssetName("index.android.bundle")
             .setJSMainModulePath("index")
             .addPackages(packages)
-            .setUseDeveloperSupport(BuildConfig.DEBUG)
+            .setUseDeveloperSupport(ConstUtil.IS_DEBUG)
             .setInitialLifecycleState(LifecycleState.RESUMED)
             .setJavaScriptExecutorFactory(HermesExecutorFactory())
+            .setJSExceptionHandler {
+                println("hepan getException $it")
+            }
             .build()
         // The string here (e.g. "MyReactNativeApp") has to match
         // the string in AppRegistry.registerComponent() in index.js
