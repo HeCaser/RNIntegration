@@ -1,6 +1,6 @@
 import React from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
-import RnException from './pages/RnException.js'
+import RnException from './pages/simulate_error/RnException.js'
 
 const HelloWorld = () => {
   return (
