@@ -3,103 +3,57 @@ package com.panhe.rnandroid
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
-import android.view.KeyEvent
-import com.facebook.hermes.reactexecutor.HermesExecutorFactory
-import com.facebook.react.PackageList
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.facebook.react.ReactInstanceManager
-import com.facebook.react.ReactPackage
-import com.facebook.react.ReactRootView
-import com.facebook.react.common.LifecycleState
-import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.soloader.SoLoader
+import com.panhe.rnandroid.fragment.CustomRNFragment
 import com.panhe.rnandroid.util.ConstUtil
+import com.panhe.rnandroid.util.RNCommonUtil
 
-const val RN_REGISTER_NAME = "AddView"
 
-class RnActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
+class RnActivity : AppCompatActivity() {
 
     companion object {
         const val OVERLAY_PERMISSION_REQ_CODE = 1  // Choose any value
     }
 
-
-    private lateinit var reactRootView: ReactRootView
-    private lateinit var reactInstanceManager: ReactInstanceManager
-
-
+    private  var mRnFragment: CustomRNFragment?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         SoLoader.init(this, false)
-        reactRootView = ReactRootView(this)
-        val packages: List<ReactPackage> = PackageList(application).packages
-        // Packages that cannot be autolinked yet can be added manually here, for example:
-        // packages.add(MyReactNativePackage())
-        // Remember to include them in `settings.gradle` and `app/build.gradle` too.
-        reactInstanceManager = ReactInstanceManager.builder()
-            .setApplication(application)
-            .setCurrentActivity(this)
-            .setBundleAssetName("index.android.bundle")
-            .setJSMainModulePath("index")
-            .addPackages(packages)
-            .setUseDeveloperSupport(BuildConfig.DEBUG)
-            .setInitialLifecycleState(LifecycleState.RESUMED)
-            .setJavaScriptExecutorFactory(HermesExecutorFactory())
-            .build()
-        // The string here (e.g. "MyReactNativeApp") has to match
-        // the string in AppRegistry.registerComponent() in index.js
-        reactRootView?.startReactApplication(reactInstanceManager, RN_REGISTER_NAME, null)
-        setContentView(reactRootView)
 
+        setContentView(R.layout.activity_rn)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if(!Settings.canDrawOverlays(this)) {
+            if (!Settings.canDrawOverlays(this)) {
                 val intent = Intent(
                     Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                    Uri.parse("package: $packageName"))
+                    Uri.parse("package: $packageName")
+                )
                 startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE);
             }
         }
-    }
 
+        mRnFragment = CustomRNFragment.newInstance(ConstUtil.NATIVE_CALLBACK, null)
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        reactInstanceManager?.onActivityResult(this, requestCode, resultCode, data)
-    }
+        supportFragmentManager
+            .beginTransaction()
+            .add(R.id.RnContainer, mRnFragment!!)
+            .commit()
 
-    override fun onPause() {
-        super.onPause()
-        reactInstanceManager.onHostPause(this)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        reactInstanceManager.onHostResume(this, this)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        reactInstanceManager.onHostDestroy(this)
-        reactRootView.unmountReactApplication()
-    }
-
-    override fun onBackPressed() {
-        reactInstanceManager.onBackPressed()
-        super.onBackPressed()
-    }
-    override fun invokeDefaultOnBackPressed() {
-        super.onBackPressed()
-    }
-
-    override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
-        if (keyCode == KeyEvent.KEYCODE_MENU && reactInstanceManager != null) {
-            reactInstanceManager.showDevOptionsDialog()
-            return true
+        findViewById<View>(R.id.tvTest).setOnClickListener {
+            runTestFun()
         }
-        return super.onKeyUp(keyCode, event)
     }
+
+
+    private fun runTestFun(){
+        RNCommonUtil.sendEventToJs(mRnFragment?.getRnManager(),"viewWillAppear", "额外参数")
+    }
+
+
 }
