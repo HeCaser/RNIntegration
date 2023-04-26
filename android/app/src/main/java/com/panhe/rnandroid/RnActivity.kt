@@ -51,8 +51,11 @@ class RnActivity : AppCompatActivity() {
     }
 
 
+    override fun onResume() {
+        super.onResume()
+    }
     private fun runTestFun(){
-        RNCommonUtil.sendEventToJs(mRnFragment?.getRnManager(),"viewWillAppear", "额外参数")
+        startActivity(Intent(this,RnActivity::class.java))
     }
 
 

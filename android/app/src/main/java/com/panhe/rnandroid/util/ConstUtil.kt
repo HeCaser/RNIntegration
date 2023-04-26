@@ -10,5 +10,6 @@ object ConstUtil {
     const val IS_DEBUG = false
     const val MAIN_REACT_NAME = "MyReactNativeApp"
     const val EXCEPTION_REACT_NAME = "RnException"
+    const val NATIVE_CALLBACK = "NativeCallBack" // native 发送事件到 js
 
 }

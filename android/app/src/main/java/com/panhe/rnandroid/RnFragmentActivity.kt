@@ -15,7 +15,7 @@ class RnFragmentActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
         setContentView(R.layout.activity_rn_fragment)
 
         val reactNativeFragment = ReactFragment.Builder()
-            .setComponentName(ConstUtil.MAIN_REACT_NAME)
+            .setComponentName(ConstUtil.NATIVE_CALLBACK)
             .setLaunchOptions(getLaunchOptions("test message"))
             .build()
 

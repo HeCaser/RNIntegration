@@ -2,6 +2,7 @@ package com.panhe.rnandroid.fragment
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.facebook.react.ReactRootView
 import com.facebook.react.common.LifecycleState
 import com.facebook.soloader.SoLoader
 import com.panhe.rnandroid.BuildConfig
+import com.panhe.rnandroid.util.RNCommonUtil
 
 /**
  * @author: hepan
@@ -27,6 +29,7 @@ class CustomRNFragment : Fragment() {
     private lateinit var reactRootView: ReactRootView
     private lateinit var reactInstanceManager: ReactInstanceManager
 
+    private var resumeTime = 1
     companion object {
         fun newInstance(componentName: String, launchOptions: Bundle?): CustomRNFragment {
             val fragment = CustomRNFragment()
@@ -87,6 +90,7 @@ class CustomRNFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         this.reactInstanceManager.onHostResume(activity)
+        RNCommonUtil.sendEventToJs(reactInstanceManager,"viewWillAppear", "页面可见了,次数 =${resumeTime++}")
     }
 
     override fun onPause() {
