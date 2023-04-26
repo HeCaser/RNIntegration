@@ -119,15 +119,14 @@ commits: 9664510e0b0a5c05a236d4960664e1c56a468153 0fe1b5bc958558f34706e8b6a7495d
 ### JS 侧
 >调用 React 提供的方法即可 
 
-// Android 为例
 ```
 import {
   NativeEventEmitter,
 } from 'react-native';
 
-  DeviceEventEmitter.addListener(eventName,(data: string) => {
-      console.log('hepan Rn 侧接收到回调 ' + data)
-      setParam(data)
-    })
+DeviceEventEmitter.addListener(eventName,(data: string) => {
+    console.log('hepan Rn 侧接收到回调 ' + data)
+    setParam(data)
+ })
 ```
 
