@@ -99,3 +99,35 @@ $ npx react-native bundle --platform android --dev false --entry-file index.js -
 ## 集成 RN Fragment
 commits: 9664510e0b0a5c05a236d4960664e1c56a468153 0fe1b5bc958558f34706e8b6a7495d8d994456b1
 
+---
+
+2023-04-26 
+## Native JS 通信
+> native 发送 event 与 data 给 JS 侧. 以 Android 为例
+
+### Android 侧
+> 通过 `ReactInstanceManager` 获取 `DeviceEventManagerModule` 然后发送事件
+
+```
+   manager?.currentReactContext
+   ?.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+   ?.emit(eventName, eventData) 
+```
+问题: ReactInstanceManager 的 currentReactContext 是异步创建的, 使用时可能为空
+解决: 通过回调监听 Context 的创建解决, 详情查看 `com.panhe.rnandroid.util.RNCommonUtil#sendEventToJs`
+
+### JS 侧
+>调用 React 提供的方法即可 
+
+// Android 为例
+```
+import {
+  NativeEventEmitter,
+} from 'react-native';
+
+  DeviceEventEmitter.addListener(eventName,(data: string) => {
+      console.log('hepan Rn 侧接收到回调 ' + data)
+      setParam(data)
+    })
+```
+
