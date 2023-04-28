@@ -10,6 +10,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        findViewById<View>(R.id.tvGoMyReactNativeApp).setOnClickListener {
+            startActivity(Intent(this@MainActivity,RnActivity::class.java).apply {
+                putExtra("isMyReactNativeApp",true)
+            })
+        }
+
         findViewById<View>(R.id.tvGoRN).setOnClickListener {
             startActivity(Intent(this@MainActivity,RnActivity::class.java))
         }

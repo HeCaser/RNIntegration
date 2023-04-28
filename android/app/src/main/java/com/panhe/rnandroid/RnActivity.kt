@@ -7,11 +7,9 @@ import android.os.Bundle
 import android.provider.Settings
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.facebook.react.ReactInstanceManager
 import com.facebook.soloader.SoLoader
 import com.panhe.rnandroid.fragment.CustomRNFragment
 import com.panhe.rnandroid.util.ConstUtil
-import com.panhe.rnandroid.util.RNCommonUtil
 
 
 class RnActivity : AppCompatActivity() {
@@ -38,7 +36,14 @@ class RnActivity : AppCompatActivity() {
             }
         }
 
-        mRnFragment = CustomRNFragment.newInstance(ConstUtil.NATIVE_CALLBACK, null)
+        val isRNApp = intent?.extras?.getBoolean("isMyReactNativeApp", false)
+
+        if (isRNApp == true) {
+            // 通用的 RN 页面, MyReactNativeApp, 修改 JS 测, android 侧不用修改
+            mRnFragment = CustomRNFragment.newInstance(ConstUtil.MAIN_REACT_NAME, null)
+        } else {
+            mRnFragment = CustomRNFragment.newInstance(ConstUtil.NATIVE_CALLBACK, null)
+        }
 
         supportFragmentManager
             .beginTransaction()
