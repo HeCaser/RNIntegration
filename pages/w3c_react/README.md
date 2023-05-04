@@ -155,3 +155,8 @@ We can use the `useState` Hook to keep track of each inputs value and provide a 
 Using `memo` will cause React to skip rendering a component if its props have not changed.
 
 This can improve performance.
+
+ [MemoLearn](./MemoLearn.js)
+ [MemoTodo](./MemoTodo.js)
+
+---

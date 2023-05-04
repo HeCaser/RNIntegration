@@ -7,7 +7,9 @@ import Component from './pages/w3c_react/CarComponent.js';
 import LifecycleComponent from './pages/w3c_react/LifecycleComponent.js';
 import LearnProps from './pages/w3c_react/LearnProps.js';
 import FormLearn from './pages/w3c_react/FormLearn.js';
-AppRegistry.registerComponent( 'MyReactNativeApp', () => FormLearn, );
+import MemoLearn from './pages/w3c_react/MemoLearn.js';
+
+AppRegistry.registerComponent( 'MyReactNativeApp', () => MemoLearn, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
 AppRegistry.registerComponent( 'AddView', () => AddView, );
 AppRegistry.registerComponent( 'NativeCallBack', () => NativeCallBack, );
