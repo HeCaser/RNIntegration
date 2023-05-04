@@ -152,11 +152,104 @@ We can use the `useState` Hook to keep track of each inputs value and provide a 
 ---
 
 # React Memo
+> 使用 memo 可以优化不必要的刷新
+
 Using `memo` will cause React to skip rendering a component if its props have not changed.
 
 This can improve performance.
 
  [MemoLearn](./MemoLearn.js)
+
  [MemoTodo](./MemoTodo.js)
 
 ---
+
+# Styling React Using CSS
+There are many ways to style React with CSS, this tutorial will take a closer look at three common ways:
+
+- Inline styling
+- CSS stylesheets
+- CSS Modules
+
+## Inline Styling
+
+```
+ <h1 style={{color: "red"}}>Hello Style!</h1>
+  
+```
+
+> ``Note``: In JSX, JavaScript expressions are written inside curly braces, and since JavaScript objects also use curly braces, the styling in the example above is written inside two sets of curly braces ``{{}}``.
+
+### camelCased Property Names
+> 驼峰命名
+
+Since the inline CSS is written in a JavaScript object, properties with hyphen separators, like ``background-color``, must be written with camel case syntax:
+
+```
+   <h1 style={{backgroundColor: "lightblue"}}>Hello Style!</h1>
+```
+
+### JavaScript Object
+> 定义对象
+
+```
+const Header = () => {
+  const myStyle = {
+    color: "white",
+    backgroundColor: "DodgerBlue",
+    padding: "10px",
+    fontFamily: "Sans-Serif"
+  };
+  return (
+    <>
+      <h1 style={myStyle}>Hello Style!</h1>
+      <p>Add a little style!</p>
+    </>
+  );
+```
+
+## CSS Stylesheet
+> Web 开发使用
+
+You can write your CSS styling in a separate file, just save the file with the .css file extension, and import it in your application.
+
+Create a new file called "App.css" and insert some CSS code in it:
+
+```
+body {
+  background-color: #282c34;
+  color: white;
+  padding: 40px;
+  font-family: Sans-Serif;
+  text-align: center;
+}
+```
+
+## CSS Modules
+Another way of adding styles to your application is to use CSS Modules.
+
+CSS Modules are convenient for components that are placed in separate files.
+
+Create the CSS module with the .module.css extension, example: my-style.module.css.
+
+Create a new file called "my-style.module.css" and insert some CSS code in it:
+
+```
+.bigblue {
+  color: DodgerBlue;
+  padding: 40px;
+  font-family: Sans-Serif;
+  text-align: center;
+}
+```
+
+Import the stylesheet in your component:
+```
+import styles from './my-style.module.css'; 
+
+const Car = () => {
+  return <h1 className={styles.bigblue}>Hello Car!</h1>;
+}
+
+export default Car;
+```
