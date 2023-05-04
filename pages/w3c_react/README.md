@@ -65,3 +65,93 @@ To send props into a component, use the same syntax as HTML attributes:
 ```
 
 Note: React Props are ``read-only``! You will get an error if you try to change their value.
+
+---
+2023-05-04
+# React Events
+Just like HTML DOM events, React can perform actions based on user events.
+
+React has the same events as HTML: click, change, mouseover etc.
+
+React events are written in ``camelCase`` syntax:
+
+`onClick` instead of `onclick`.
+
+React event handlers are written inside curly braces:
+
+`onClick={shoot}`  instead of `onClick="shoot()"`.
+
+---
+# React Conditional Rendering
+> 条件渲染
+In React, you can conditionally render components.
+
+There are several ways to do this.
+
+## if Statement
+```
+function Goal(props) {
+  const isGoal = props.isGoal;
+  if (isGoal) {
+    return <MadeGoal/>;
+  }
+  return <MissedGoal/>;
+}
+```
+
+## Logical && Operator
+```
+{cars.length > 0 &&
+    <h2>
+        You have {cars.length} cars in your garage.
+    </h2>
+}
+```
+
+## Ternary Operator
+>三元运算 `condition ? true : false`
+
+` { isGoal ? <MadeGoal/> : <MissedGoal/> }`
+
+---
+# React Lists
+In React, you will render lists with some type of loop.
+
+The JavaScript `map()` array method is generally the preferred method.
+
+`{cars.map((car) => <Car brand={car} />)}`
+
+## Keys
+Keys allow React to keep track of elements. This way, if an item is updated or removed, only that item will be re-rendered instead of the entire list.
+
+Keys need to be unique to each sibling. But they can be duplicated globally.
+
+```
+ {cars.map((car) => <Car key={car.id} brand={car.brand} />)}
+```
+---
+
+# React Forms
+> [Demo 查看](./FormLearn.js)
+
+In HTML, form data is usually handled by the DOM.
+
+In React, form data is usually handled by the components.
+
+You can control changes by adding event handlers in the `onChange` attribute.
+
+We can use the `useState` Hook to keep track of each inputs value and provide a "single source of truth" for the entire application.
+
+> 总结: React 组件利用 `useState` 自己存储数据. 
+
+---
+
+# React Router
+> 主要用于 Web 导航
+
+---
+
+# React Memo
+Using `memo` will cause React to skip rendering a component if its props have not changed.
+
+This can improve performance.

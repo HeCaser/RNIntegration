@@ -6,8 +6,8 @@ import NativeCallBack from './pages/native_call/index.tsx'
 import Component from './pages/w3c_react/CarComponent.js';
 import LifecycleComponent from './pages/w3c_react/LifecycleComponent.js';
 import LearnProps from './pages/w3c_react/LearnProps.js';
-
-AppRegistry.registerComponent( 'MyReactNativeApp', () => LearnProps, );
+import FormLearn from './pages/w3c_react/FormLearn.js';
+AppRegistry.registerComponent( 'MyReactNativeApp', () => FormLearn, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
 AppRegistry.registerComponent( 'AddView', () => AddView, );
 AppRegistry.registerComponent( 'NativeCallBack', () => NativeCallBack, );
