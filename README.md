@@ -10,7 +10,11 @@
 ---
 2023-03-10
 ## RN 环境配置
-RN 环境初始化，首个 RN 项目（编译 Android App），查看 Demo: https://github.com/HeCaser/RNProjectForAndroid
+RN 环境初始化，首个 RN 项目
+
+建议按照 [官方文档](https://reactnative.dev/docs/environment-setup) 配置, 一定要足够细心+耐心
+
+配置完毕,可以得到一个可运行的工程 [这是我的 RN Demo](https://github.com/HeCaser/RNProjectForAndroid)
 
 ---
 2023-03-11
