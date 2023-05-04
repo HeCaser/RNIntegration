@@ -50,3 +50,18 @@ React has five built-in methods that gets called, in this order, when a componen
 
 React has only one built-in method that gets called when a component is unmounted:
 - componentWillUnmount()
+
+---
+
+# React Props
+> Demo 见 [LearnProps](./LearnProps.js)
+
+React Props are like function arguments in JavaScript and attributes in HTML.
+
+To send props into a component, use the same syntax as HTML attributes:
+
+```
+<Car brand='BYD'></Car>
+```
+
+Note: React Props are ``read-only``! You will get an error if you try to change their value.
