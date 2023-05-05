@@ -1,4 +1,5 @@
 # W3C React 基础学习
+
 > 注意不是 React Native
 
 https://www.w3schools.com/react/default.asp
@@ -20,12 +21,14 @@ https://www.w3schools.com/react/default.asp
 - chagne state to rerender
 
 > 总结: Always use the setState() method to change the state object, it will ensure that the component knows its been updated and calls the render() method (and all the other lifecycle methods).
+
 ---
 
 # Lifecycle of Component
 > Each component in React has a lifecycle which you can monitor and manipulate during its three main phases. The three phases are: ``Mounting``, ``Updating``, and ``Unmounting``.
 
 ## Mounting
+
 > Mounting means putting elements into the DOM.
 
 React has four built-in methods that gets called, in this order, when mounting a component:
@@ -36,6 +39,7 @@ React has four built-in methods that gets called, in this order, when mounting a
 - componentDidMount()
 
 ## Updating
+
 > A component is updated whenever there is a change in the component's state or props.
 
 React has five built-in methods that gets called, in this order, when a component is updated:
@@ -46,6 +50,7 @@ React has five built-in methods that gets called, in this order, when a componen
 - componentDidUpdate()
 
 ## Unmounting
+
 > The next phase in the lifecycle is when a component is removed from the DOM, or unmounting as React likes to call it.
 
 React has only one built-in method that gets called when a component is unmounted:
@@ -54,6 +59,7 @@ React has only one built-in method that gets called when a component is unmounte
 ---
 
 # React Props
+
 > Demo 见 [LearnProps](./LearnProps.js)
 
 React Props are like function arguments in JavaScript and attributes in HTML.
@@ -109,6 +115,7 @@ function Goal(props) {
 ```
 
 ## Ternary Operator
+
 >三元运算 `condition ? true : false`
 
 ` { isGoal ? <MadeGoal/> : <MissedGoal/> }`
@@ -132,6 +139,7 @@ Keys need to be unique to each sibling. But they can be duplicated globally.
 ---
 
 # React Forms
+
 > [Demo 查看](./FormLearn.js)
 
 In HTML, form data is usually handled by the DOM.
@@ -147,11 +155,13 @@ We can use the `useState` Hook to keep track of each inputs value and provide a 
 ---
 
 # React Router
+
 > 主要用于 Web 导航
 
 ---
 
 # React Memo
+
 > 使用 memo 可以优化不必要的刷新
 
 Using `memo` will cause React to skip rendering a component if its props have not changed.
@@ -181,6 +191,7 @@ There are many ways to style React with CSS, this tutorial will take a closer lo
 > ``Note``: In JSX, JavaScript expressions are written inside curly braces, and since JavaScript objects also use curly braces, the styling in the example above is written inside two sets of curly braces ``{{}}``.
 
 ### camelCased Property Names
+
 > 驼峰命名
 
 Since the inline CSS is written in a JavaScript object, properties with hyphen separators, like ``background-color``, must be written with camel case syntax:
@@ -190,6 +201,7 @@ Since the inline CSS is written in a JavaScript object, properties with hyphen s
 ```
 
 ### JavaScript Object
+
 > 定义对象
 
 ```
@@ -209,6 +221,7 @@ const Header = () => {
 ```
 
 ## CSS Stylesheet
+
 > Web 开发使用
 
 You can write your CSS styling in a separate file, just save the file with the .css file extension, and import it in your application.
@@ -253,3 +266,96 @@ const Car = () => {
 
 export default Car;
 ```
+---
+
+# React Hooks 
+
+Hooks were added to React in version 16.8.
+
+Hooks allow function components to have access to state and other React features. Because of this, class components are generally no longer needed.
+
+## What is a Hook?
+
+> Hooks allow us to "hook" into React features such as state and lifecycle methods.
+
+### Hook Rules
+There are 3 rules for hooks:
+
+- Hooks can only be called inside React function components.
+- Hooks can only be called at the top level of a component.
+- Hooks cannot be conditional
+
+## React useState Hook
+
+[Demo](./UseStateLeanr.js)
+
+> 总结: useState 可以 hook 的通常是数据,可以是基本类型也可以是对象, 每次更新 state 都会产生新的 Data
+
+The React useState Hook allows us to track state in a function component.
+
+State generally refers to data or properties that need to be tracking in an application.
+
+
+### import
+```
+import { useState } from "react";
+```
+
+### Initialize
+
+useState accepts an initial state and returns two values:
+
+- The current state.
+- A function that updates the state.
+
+```
+// we are destructuring the returned values from useState
+ const [color, setColor] = useState(""); 
+```
+
+### Read State
+```
+<h1>My favorite color is {color}!</h1>
+```
+
+### Update State
+
+```
+const [color, setColor] = useState("red");
+
+ <>
+    <h1>My favorite color is {color}!</h1>
+    <button
+      type="button"
+      onClick={() => setColor("blue")}
+    >Blue</button>
+  </>
+```
+
+### What Can State Hold
+
+The useState Hook can be used to keep track of strings, numbers, booleans, arrays, objects, and any combination of these!
+
+### Updating Objects and Arrays in State
+
+When state is updated, the entire state gets overwritten.
+
+If we only called setCar({color: "blue"}), this would remove the brand, model, and year from our state.
+
+We can use the JavaScript spread operator to help us.
+
+```
+ const [car, setCar] = useState({
+    brand: "Ford",
+    model: "Mustang",
+    year: "1964",
+    color: "red"
+  });
+
+  const updateColor = () => {
+    setCar(previousState => {
+      return { ...previousState, color: "blue" }
+    });
+  }
+```
+
