@@ -287,7 +287,7 @@ There are 3 rules for hooks:
 
 ## React useState Hook
 
-[Demo](./UseStateLeanr.js)
+[Demo: UseEffectLearn.js](./UseStateLeanr.js)
 
 > 总结: useState 可以 hook 的通常是数据,可以是基本类型也可以是对象, 每次更新 state 都会产生新的 Data
 
@@ -358,4 +358,27 @@ We can use the JavaScript spread operator to help us.
     });
   }
 ```
+
+### Effect Cleanup
+Some effects require cleanup to reduce memory leaks.
+
+Timeouts, subscriptions, event listeners, and other effects that are no longer needed should be disposed.
+
+We do this by including a return function at the end of the useEffect Hook.
+
+**总结: 通过在 useEffect 末尾 return function 来释放资源**
+
+```
+ useEffect(() => {
+        console.log('hepan 执行 useEffect only once')
+        let timer = setTimeout(() => {
+            setCount((count) => count + 1)
+        }, 1000);
+
+        // 释放资源
+        return () => clearTimeout(timer)
+    }, [])
+```
+
+---
 
