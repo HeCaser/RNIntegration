@@ -433,3 +433,31 @@ function Comp3() {
 
 ---
 
+## React useRef Hook
+
+The useRef Hook allows you to persist values between renders.
+
+It can be used to store a mutable value that does not cause a re-render when updated.
+
+It can be used to access a DOM element directly.
+
+[Demo: UseRefLearn](./UseRefLearn.js)
+
+**总结:**
+1. useRef 可以保持 value, 其与 useState 不同在于数据变动时不会触发 render 
+2. useRef 可以持有组件的引用
+
+保持数据
+
+```
+  const refCount = useRef(0)
+
+  refCount.current += 1
+```
+
+引用对象
+```
+ const refInput = useRef()
+
+ <TextInput style={{ borderWidth: 1, margin: 10 }} ref={refInput}/>
+```

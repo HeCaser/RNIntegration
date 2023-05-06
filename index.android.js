@@ -6,9 +6,9 @@ import NativeCallBack from './pages/native_call/index.tsx'
 import UseStateLearn from './pages/w3c_react/UseStateLeanr.js';
 import UseEffectLearn from './pages/w3c_react/UseEffectLearn.js';
 import UseContextLearn from './pages/w3c_react/UseContextLearn.js';
+import UseRefLearn from './pages/w3c_react/UseRefLearn.js';
 
-
-AppRegistry.registerComponent( 'MyReactNativeApp', () => UseContextLearn, );
+AppRegistry.registerComponent( 'MyReactNativeApp', () => UseRefLearn, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
 AppRegistry.registerComponent( 'AddView', () => AddView, );
 AppRegistry.registerComponent( 'NativeCallBack', () => NativeCallBack, );
