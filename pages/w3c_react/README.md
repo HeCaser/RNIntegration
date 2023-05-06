@@ -382,3 +382,54 @@ We do this by including a return function at the end of the useEffect Hook.
 
 ---
 
+## React useContext Hook
+
+React Context is a way to manage state globally.
+
+It can be used together with the useState Hook to share state between deeply nested components more easily than with useState alone.
+
+[Demo: UseContextLearn](./UseContextLearn.js)
+
+**总结:在嵌套 components 中共享数据**
+
+例如第一层有数据 user, 第五层需要使用 user, 如果用 useState ,需要通过第二层到第四层依次传递, 而 useContext 可以解决类似问题.
+
+- 创建 Context, 并传入数据
+
+```
+import { createContext, useContext,useState } from "react";
+
+const UserContext = createContext()
+
+function UseContextLearn() {
+    const [user, setUser] = useState("Jesse Hall");
+    return (
+        <View>
+            {/* 利用 Context 传递 user */}
+            <UserContext.Provider value={user}>
+                <Text>user: {user}</Text>
+                <View style={{ marginTop: 10 }}></View>
+                <Comp1></Comp1>
+              
+            </UserContext.Provider>
+
+        </View>
+    )
+
+}
+```
+
+- 子 View 获取 user
+```
+function Comp3() {
+    const user = useContext(UserContext)
+    return (
+        <View>
+            <Text>我是 Comp3, 获取 user = {user}</Text>
+        </View>
+    )
+}
+```
+
+---
+

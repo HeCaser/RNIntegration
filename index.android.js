@@ -5,8 +5,10 @@ import AddView from './pages/add_view/index.js';
 import NativeCallBack from './pages/native_call/index.tsx'
 import UseStateLearn from './pages/w3c_react/UseStateLeanr.js';
 import UseEffectLearn from './pages/w3c_react/UseEffectLearn.js';
+import UseContextLearn from './pages/w3c_react/UseContextLearn.js';
 
-AppRegistry.registerComponent( 'MyReactNativeApp', () => UseEffectLearn, );
+
+AppRegistry.registerComponent( 'MyReactNativeApp', () => UseContextLearn, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
 AppRegistry.registerComponent( 'AddView', () => AddView, );
 AppRegistry.registerComponent( 'NativeCallBack', () => NativeCallBack, );
