@@ -461,3 +461,19 @@ It can be used to access a DOM element directly.
 
  <TextInput style={{ borderWidth: 1, margin: 10 }} ref={refInput}/>
 ```
+---
+
+# React useReducer Hook
+
+The reducer function contains your custom state logic and the initialState can be a simple value but generally will contain an object.
+
+The useReducer Hook returns the current state and a dispatch method.
+
+Here is an example of useReducer in a counter app:
+
+**总结: reducer 是更复杂的 state, 添加自定义逻辑, useReducer 接收自定义处理逻辑和初始化数据, 返回 current state 和 dispatch **
+
+[Demo: UseReducerLean,一个 reducer 实现增删改](./UseReducerLean.js)
+
+---
+
