@@ -57,6 +57,7 @@ const expensiveCalculation1 = (num) => {
     }
     return num;
 }
+
 const expensiveCalculation2 = (num) => {
     console.log('hepan 复杂计算2')
     for (let i = 0; i < 100000; i++) {

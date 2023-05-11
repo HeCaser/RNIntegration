@@ -493,3 +493,11 @@ The React useCallback Hook returns a memoized callback function.
 ---
 
 ## React useMemo Hook
+
+The React useMemo Hook returns a memoized value.
+
+**总结**
+1. The useMemo Hook only runs when one of its dependencies update.
+2. The main difference is that useMemo returns a memoized value and useCallback returns a memoized functio
+
+[Demo: UseMemoLearn](./UseMemoLearn.js)
