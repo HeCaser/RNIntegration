@@ -463,7 +463,7 @@ It can be used to access a DOM element directly.
 ```
 ---
 
-# React useReducer Hook
+## React useReducer Hook
 
 The reducer function contains your custom state logic and the initialState can be a simple value but generally will contain an object.
 
@@ -477,3 +477,15 @@ Here is an example of useReducer in a counter app:
 
 ---
 
+2023-05-11
+
+## React useCallback Hook
+
+The React useCallback Hook returns a memoized callback function.
+
+**总结**
+1. useMemo returns a memoized value, useCallback **returns a memoized function**
+2. useCallback 只在其依赖更新时刷新, 而不是每次 Render 都刷新
+3. useCallback 可以提高性能
+
+[代码见: MemoTodoFunctionDemo](./MemoTodoFunctionDemo.js)
