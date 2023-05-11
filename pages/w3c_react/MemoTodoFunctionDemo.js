@@ -8,11 +8,14 @@ function MemoTodoFunctionDemo() {
     const [todos, setTodos] = useState(["todo 1", "todo 2"]);
     const [count, setCount] = useState(0)
 
-    // 当调用 increment,MemoTodoFunction 会 Render, 即使此时 todos 没有改变
-    // 为什么 MemoTodoFunction 使用了 memo 还会出现这个现象
-    // This is because of something called "referential equality".
-    // 因为上面的特性, 每次 component render , 其中的 function 会重建, 而这个 function 是被 MemoTodoFunction 持有的,所以 MemoTodoFunction 会 Render
-
+    /**
+     * 当调用 increment,MemoTodoFunction 会 Render, 即使此时 todos 没有改变
+     * 为什么 MemoTodoFunction 使用了 memo 还会出现这个现象?
+     * This is because of something called "referential equality".
+     * 因为上面的特性, 每次 component render , 其中的 function 会重建, 
+     * 而这个 function 是被 MemoTodoFunction 持有的,所以 MemoTodoFunction 会 Render
+     */
+    
     const increment = () => {
         setCount((c) => c + 1);
     };
