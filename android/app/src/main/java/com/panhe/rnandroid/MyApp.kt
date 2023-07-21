@@ -7,6 +7,7 @@ import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.soloader.SoLoader
+import com.panhe.rnandroid.util.ConstUtil
 
 /**
  * @author: hepan
@@ -22,7 +23,8 @@ class MyApp:Application(),ReactApplication {
 
     private val reactNativeHost =
         object : DefaultReactNativeHost(this) {
-            override fun getUseDeveloperSupport() = BuildConfig.DEBUG
+            // 是否是开发者模式, RnFragmentActivity 中使用的 ReactFragment 会用到
+            override fun getUseDeveloperSupport() = ConstUtil.IS_DEBUG
             override fun getPackages(): List<ReactPackage> {
                 val packages = PackageList(this).packages.toMutableList()
                 // Packages that cannot be autolinked yet can be added manually here

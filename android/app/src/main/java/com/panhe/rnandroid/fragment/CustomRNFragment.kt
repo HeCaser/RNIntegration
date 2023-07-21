@@ -15,6 +15,7 @@ import com.facebook.react.ReactRootView
 import com.facebook.react.common.LifecycleState
 import com.facebook.soloader.SoLoader
 import com.panhe.rnandroid.BuildConfig
+import com.panhe.rnandroid.util.ConstUtil
 import com.panhe.rnandroid.util.RNCommonUtil
 
 /**
@@ -58,7 +59,7 @@ class CustomRNFragment : Fragment() {
             .setBundleAssetName("index.android.bundle")
             .setJSMainModulePath("index")
             .addPackages(packages)
-            .setUseDeveloperSupport(BuildConfig.DEBUG)
+            .setUseDeveloperSupport(ConstUtil.IS_DEBUG)
             .setInitialLifecycleState(LifecycleState.RESUMED)
             .setJavaScriptExecutorFactory(HermesExecutorFactory())
             .build()

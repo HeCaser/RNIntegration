@@ -11,7 +11,7 @@ import com.panhe.rnandroid.util.ConstUtil
  * 采用 Facebook 包中封装好的 ReactFragment, 使用起来方便些
  * 注意:
  * 1. ReactFragment 依赖于 Application 实现 ReactApplication 接口
- * 2. ReactFragment 默认加载本地的 metro server(debug 模式). 不成功会加载 assets 目录下的 index.android.bundle (耗时比较久)
+ * 2. ReactFragment 默认加载本地的 metro server(debug 模式). 不成功会加载 assets 目录下的 index.android.bundle
  */
 class RnFragmentActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +19,7 @@ class RnFragmentActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
         setContentView(R.layout.activity_rn_fragment)
 
         val reactNativeFragment = ReactFragment.Builder()
-            .setComponentName(ConstUtil.NATIVE_CALLBACK)
+            .setComponentName(ConstUtil.MAIN_REACT_NAME)
             .setLaunchOptions(getLaunchOptions("test message"))
             .build()
 

@@ -137,3 +137,17 @@ DeviceEventEmitter.addListener(eventName,(data: string) => {
  })
 ```
 
+---
+
+2023-07-21
+
+# 加载 assets 目录下的 bundle 包, 页面渲染很慢
+
+原因是构建 RN 管理器时, 默认 debug 模式为 true, 本应通过 metro 调试, 但是本地 metro 服务停止时, 管理器会尝试加载 assets 中的 bundle 包, 但是速度会异常缓慢.
+
+解决办法: debug 模式改为 false
+
+```
+// 当直接加载 bundle 文件时
+setUseDeveloperSupport(false)
+```

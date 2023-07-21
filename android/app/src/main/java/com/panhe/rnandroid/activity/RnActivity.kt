@@ -53,6 +53,7 @@ class RnActivity : AppCompatActivity() {
         findViewById<View>(R.id.tvTest).setOnClickListener {
             runTestFun()
         }
+
     }
 
 

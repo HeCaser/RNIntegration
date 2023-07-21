@@ -6,7 +6,9 @@ import NativeCallBack from './pages/native_call/index.tsx'
 import UseReducerLean from './pages/w3c_react/UseReducerLean.js';
 import MemoTodoFunctionDemo from './pages/w3c_react/MemoTodoFunctionDemo.js';
 import UseMemoLearn from './pages/w3c_react/UseMemoLearn.js';
-AppRegistry.registerComponent( 'MyReactNativeApp', () => UseMemoLearn, );
+import HomePage from './pages/homepage/index.js';
+
+AppRegistry.registerComponent( 'MyReactNativeApp', () => HomePage, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
 AppRegistry.registerComponent( 'AddView', () => AddView, );
 AppRegistry.registerComponent( 'NativeCallBack', () => NativeCallBack, );
