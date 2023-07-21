@@ -1,4 +1,4 @@
-package com.panhe.rnandroid
+package com.panhe.rnandroid.activity
 
 import android.content.Intent
 import android.net.Uri
