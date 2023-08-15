@@ -11,5 +11,6 @@ object ConstUtil {
     const val MAIN_REACT_NAME = "MyReactNativeApp"
     const val EXCEPTION_REACT_NAME = "RnException"
     const val NATIVE_CALLBACK = "NativeCallBack" // native 发送事件到 js
+    const val RNTestItem = "RnItem" // 作为 Item 展示的 RN
 
 }

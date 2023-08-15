@@ -156,5 +156,31 @@ setUseDeveloperSupport(false)
 
 2023-08-15
 
-`RecyclerView` 加载 `RN` Item
+# `RecyclerView` 加载 `RN` Item
+
+## 技术方案
+
+利用 `ReactRootView` 直接加载 RN 组件, 然后 `ReactRootView` 作为 `RecyclerView` 的 Item 来展示.
+
+ReactRootView 加载 RN 代码:
+
+```
+ reactRootView.startReactApplication(manager, ConstUtil.RNTestItem)
+```
+
+## 复用问题 : 崩溃
+
+问题描述: 复用时,同一个 `ReactRootView` 在第二次调用 `startReactApplication` 会抛出异常
+
+解决办法: 反射置为空
+
+```
+  private fun setManager2Null(view: ReactRootView) {
+            val field = view.javaClass.getDeclaredField("mReactInstanceManager")
+            field.isAccessible = true
+            field.set(view, null)
+        }
+```
+
+## 复用问题: 高度变化
 

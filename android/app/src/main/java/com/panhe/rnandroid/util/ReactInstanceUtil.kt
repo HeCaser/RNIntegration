@@ -27,6 +27,7 @@ object ReactInstanceUtil {
             .setBundleAssetName("index.android.bundle")
             .setJSMainModulePath("index")
             .addPackages(packages)
+            .setUseDeveloperSupport(ConstUtil.IS_DEBUG)
             .setInitialLifecycleState(LifecycleState.RESUMED)
             .setJavaScriptExecutorFactory(HermesExecutorFactory())
             .build()
