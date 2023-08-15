@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.panhe.rnandroid.activity.RnActivity
 import com.panhe.rnandroid.activity.RnExceptionActivity
 import com.panhe.rnandroid.activity.RnFragmentActivity
+import com.panhe.rnandroid.rv.RnItemActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,5 +27,12 @@ class MainActivity : AppCompatActivity() {
 //        findViewById<View>(R.id.tvGoRNExe).setOnClickListener {
 //            startActivity(Intent(this@MainActivity, RnExceptionActivity::class.java))
 //        }
+    }
+
+    /**
+     * RN 动态列表页
+     */
+    fun goRvRn(view: View) {
+        startActivity(Intent(this@MainActivity, RnItemActivity::class.java))
     }
 }

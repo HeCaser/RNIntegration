@@ -151,3 +151,10 @@ DeviceEventEmitter.addListener(eventName,(data: string) => {
 // 当直接加载 bundle 文件时
 setUseDeveloperSupport(false)
 ```
+
+---
+
+2023-08-15
+
+`RecyclerView` 加载 `RN` Item
+
