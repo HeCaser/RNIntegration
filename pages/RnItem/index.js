@@ -6,11 +6,11 @@ function RnItem(props) {
     const [isAddWeChat, setIsAddWeChat] = useState(true)
     return (
         <View>
-            <Text>index =  {props.index}</Text>
+            <Text style={{color:'#007AFF'}}>RnItem </Text>
             <Text>我的状态 {`${isAddWeChat}`}</Text>
-            <Button onPress={()=>{
+            {/* <Button onPress={()=>{
                 setIsAddWeChat(false)
-            }} title='点击'></Button>
+            }} title='我是 RnItem'></Button> */}
             <Image source={require('./fund_hot.png')} style={{ width: '100%', height: 120 }} />
         </View>
     )

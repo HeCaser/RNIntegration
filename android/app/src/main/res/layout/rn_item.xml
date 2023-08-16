@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
     android:orientation="vertical"
     tools:context=".activity.RnActivity">
 
@@ -26,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:background="#fffefefe"
+        android:background="#fffef0f0"
         android:paddingHorizontal="4dp"
         android:paddingVertical="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,6 +42,7 @@
 
     <View
         android:background="@color/teal_200"
+
         android:layout_width="match_parent"
         android:layout_height="1dp"></View>
 </LinearLayout>

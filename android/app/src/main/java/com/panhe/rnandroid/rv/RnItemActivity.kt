@@ -60,6 +60,7 @@ class RnItemActivity : AppCompatActivity() {
             mRv = this
             layoutManager = LinearLayoutManager(this@RnItemActivity)
             adapter = RnItemAdapter(mockRnItemDataList(),reactInstanceManager)
+            recycledViewPool
         }
 
     }
@@ -67,8 +68,8 @@ class RnItemActivity : AppCompatActivity() {
     private fun mockRnItemDataList(): List<RnItemData> {
         val list = arrayListOf<RnItemData>()
         for (i in 0 until 20) {
-            if (i % 2 == 0) {
-                list.add(RnItemData(ConstUtil.MAIN_REACT_NAME))
+            if (i % 3 == 0) {
+                list.add(RnItemData(ConstUtil.RNTestItem2))
             } else {
                 list.add(RnItemData(ConstUtil.RNTestItem))
             }

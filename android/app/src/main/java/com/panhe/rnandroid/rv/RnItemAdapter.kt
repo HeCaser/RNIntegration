@@ -16,11 +16,13 @@ import com.panhe.rnandroid.R
  */
 class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactInstanceManager) :
     RecyclerView.Adapter<RnItemAdapter.MyViewHolder>() {
+
+    private var count = 0
+    val pool = ReactRootViewPool()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        println("hepan 创建 holder ")
+        println("hepan holder 创建总数 ${++count}")
         return MyViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.rn_item, parent, false), manager
-        )
+            LayoutInflater.from(parent.context).inflate(R.layout.rn_item, parent, false), manager,pool)
     }
 
     override fun getItemCount(): Int {
@@ -34,13 +36,15 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
 
     override fun onViewRecycled(holder: MyViewHolder) {
         super.onViewRecycled(holder)
-        println("hepan 回收了 ${holder.adapterPosition}")
+        pool.putReactRootView(holder.mReactRootView)
+        println("hepan 回收了 ${holder.mReactRootView?.jsModuleName}")
+
     }
 
-    class MyViewHolder(itemView: View, val manager: ReactInstanceManager) :
+    class MyViewHolder(itemView: View, val manager: ReactInstanceManager,val pool:ReactRootViewPool) :
         RecyclerView.ViewHolder(itemView) {
         private var reactViewContainer: ViewGroup
-        private var mReactRootView: ReactRootView? = null
+        var mReactRootView: ReactRootView? = null
         private var tvInfo: TextView
         private var tvTest: TextView
 
@@ -48,22 +52,43 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
             reactViewContainer = itemView.findViewById(R.id.reactViewContainer)
             tvInfo = itemView.findViewById(R.id.tvInfo)
             tvTest = itemView.findViewById(R.id.tvTest)
-            tvTest.visibility = View.VISIBLE
+//            tvTest.visibility = View.VISIBLE
             tvTest.setOnClickListener { changeModule() }
 
         }
 
         fun loadOrUpdateView(bean: RnItemData) {
+
+            var resuse = false
             if (mReactRootView == null) {
-                println("hepan 创建 ReactRootView")
                 mReactRootView = ReactRootView(reactViewContainer.context)
                 mReactRootView?.startReactApplication(manager, bean.componentName)
                 reactViewContainer.addView(mReactRootView)
             } else {
-                println("hepan 复用 view")
-                tvInfo.setText("roottag = ${mReactRootView?.rootViewTag}\n hash = ${mReactRootView.hashCode()}")
+                val moduleName = mReactRootView?.jsModuleName
+                if (bean.componentName != moduleName){
+//                    println("hepan 复用 view 不同类型")
+                    var rnView = pool.getReactRootView(bean.componentName)
+
+                    if (rnView ==null){
+                       rnView =  ReactRootView(reactViewContainer.context)
+                        rnView.startReactApplication(manager, bean.componentName)
+
+                        println("hepan 复用 view 不同类型 - 创建新的")
+                    }else{
+                        println("hepan 复用 view 不同类型 - 缓存获取")
+                    }
+                    reactViewContainer.removeAllViews()
+                    reactViewContainer.addView(rnView)
+                    mReactRootView = rnView
+                }else{
+                    println("hepan 复用 view 相同类型")
+                }
+                resuse = true
             }
 
+
+            tvInfo.setText("index = ${position} roottag = ${mReactRootView?.rootViewTag} ")
 
         }
 
