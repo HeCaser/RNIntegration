@@ -109,7 +109,7 @@ commits: 9664510e0b0a5c05a236d4960664e1c56a468153 0fe1b5bc958558f34706e8b6a7495d
 ---
 
 2023-04-26 
-## Native JS 通信
+## Native JS 通信: 移动端传递数据到 JS 
 > native 发送 event 与 data 给 JS 侧. 以 Android 为例
 
 ### Android 侧
@@ -197,9 +197,14 @@ reactRootView.startReactApplication()()
 优化后的复用方案如下:
 
 - 所有 RN 条目对应一种 `RecyclerView.Adapter` 中的 `ItemViewType` 
+
 - ViewHolder 只是一个 View 壳子, 里面填充 `ReactRootView`
-- 相同的 RN 条目(注册的 Component 不同), 可以复用 `ReactRootView`, 不同的 RN 条目不可复用
-- `ReactRootView` 展示的正确性(复用导致展示异常) 在 `onBindViewHolder` 中通过 `reactRootView.setAppProperties()` 保证
+  
+- 相同类型的 RN 条目(AppRegistry.registerComponent 注册名相同), 可以复用 `ReactRootView`, 不同的 RN 条目不可复用
+
+- `ReactRootView` 展示的正确性(复用导致展示异常) 在 `onBindViewHolder` 中通过 `reactRootView.setAppProperties()` 设置当前 Item 状态, RN 依据 props 属性刷新
+
+
 
 
 
