@@ -59,9 +59,21 @@ class RnItemActivity : AppCompatActivity() {
         findViewById<RecyclerView?>(R.id.rv).apply {
             mRv = this
             layoutManager = LinearLayoutManager(this@RnItemActivity)
-            adapter = RnItemAdapter(reactInstanceManager)
+            adapter = RnItemAdapter(mockRnItemDataList(),reactInstanceManager)
         }
 
+    }
+
+    private fun mockRnItemDataList(): List<RnItemData> {
+        val list = arrayListOf<RnItemData>()
+        for (i in 0 until 20) {
+            if (i % 2 == 0) {
+                list.add(RnItemData(ConstUtil.MAIN_REACT_NAME))
+            } else {
+                list.add(RnItemData(ConstUtil.RNTestItem))
+            }
+        }
+        return list
     }
 
 }

@@ -1,7 +1,5 @@
 package com.panhe.rnandroid.rv
 
-import android.app.Activity
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,62 +8,65 @@ import androidx.recyclerview.widget.RecyclerView
 import com.facebook.react.ReactInstanceManager
 import com.facebook.react.ReactRootView
 import com.panhe.rnandroid.R
-import com.panhe.rnandroid.util.ConstUtil
 
 /**
  * @author: hepan
  * @date: 2023/8/15
  * @desc: 适配器
  */
-class RnItemAdapter(val manager: ReactInstanceManager) :
+class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactInstanceManager) :
     RecyclerView.Adapter<RnItemAdapter.MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.rn_item, parent, false),manager)
+        println("hepan 创建 holder ")
+        return MyViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.rn_item, parent, false), manager
+        )
     }
 
     override fun getItemCount(): Int {
-        return 21
+        return dataList.size
     }
 
-    override fun onBindViewHolder(holder: RnItemAdapter.MyViewHolder, position: Int) {
-        holder.setProps()
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val bean = dataList[position]
+        holder.loadOrUpdateView(bean)
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return super.getItemViewType(position)
-    }
     override fun onViewRecycled(holder: MyViewHolder) {
         super.onViewRecycled(holder)
+        println("hepan 回收了 ${holder.adapterPosition}")
     }
 
-    class MyViewHolder(itemView: View, manager: ReactInstanceManager) : RecyclerView.ViewHolder(itemView) {
-        private var reactRootView: ReactRootView
+    class MyViewHolder(itemView: View, val manager: ReactInstanceManager) :
+        RecyclerView.ViewHolder(itemView) {
+        private var reactViewContainer: ViewGroup
+        private var mReactRootView: ReactRootView? = null
         private var tvInfo: TextView
         private var tvTest: TextView
 
         init {
-            reactRootView = itemView.findViewById(R.id.reactRootView)
+            reactViewContainer = itemView.findViewById(R.id.reactViewContainer)
             tvInfo = itemView.findViewById(R.id.tvInfo)
             tvTest = itemView.findViewById(R.id.tvTest)
             tvTest.visibility = View.VISIBLE
             tvTest.setOnClickListener { changeModule() }
-            reactRootView.startReactApplication(manager,ConstUtil.RNTestItem,Bundle().apply {
-                putInt("index",position)
-            })
+
         }
 
-        fun setProps() {
-            reactRootView.appProperties = Bundle().apply {
-                putInt("index",position)
+        fun loadOrUpdateView(bean: RnItemData) {
+            if (mReactRootView == null) {
+                println("hepan 创建 ReactRootView")
+                mReactRootView = ReactRootView(reactViewContainer.context)
+                mReactRootView?.startReactApplication(manager, bean.componentName)
+                reactViewContainer.addView(mReactRootView)
+            } else {
+                println("hepan 复用 view")
+                tvInfo.setText("roottag = ${mReactRootView?.rootViewTag}\n hash = ${mReactRootView.hashCode()}")
             }
-            tvInfo.setText("roottag = ${reactRootView.rootViewTag}\n hash = ${reactRootView.hashCode()}")
+
+
         }
 
-        private fun setManager2Null(view: ReactRootView) {
-            val field = view.javaClass.getDeclaredField("mReactInstanceManager")
-            field.isAccessible = true
-            field.set(view, null)
-        }
 
         private fun changeModule() {
 

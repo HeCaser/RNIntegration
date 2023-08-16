@@ -34,10 +34,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.facebook.react.ReactRootView
-        android:id="@+id/reactRootView"
+    <FrameLayout
+        android:id="@+id/reactViewContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
     <View
         android:background="@color/teal_200"
