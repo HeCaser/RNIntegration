@@ -68,7 +68,7 @@ class RnItemActivity : AppCompatActivity() {
     private fun mockRnItemDataList(): List<RnItemData> {
         val list = arrayListOf<RnItemData>()
         for (i in 0 until 20) {
-            if (i % 3 == 0) {
+            if (i % 2 == 0) {
                 list.add(RnItemData(ConstUtil.RNTestItem2))
             } else {
                 list.add(RnItemData(ConstUtil.RNTestItem))

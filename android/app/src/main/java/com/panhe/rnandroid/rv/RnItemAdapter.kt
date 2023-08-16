@@ -1,5 +1,6 @@
 package com.panhe.rnandroid.rv
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -87,6 +88,14 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
                 resuse = true
             }
 
+            mReactRootView?.apply {
+                var prop = appProperties
+                if (prop ==null){
+                    prop = Bundle()
+                }
+                prop.putString("native_data","我是第${adapterPosition}个条目, 数组来自native")
+                appProperties = prop
+            }
 
             tvInfo.setText("index = ${position} roottag = ${mReactRootView?.rootViewTag} ")
 
