@@ -1,6 +1,7 @@
 package com.panhe.rnandroid.rv
 
 import android.app.Activity
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,6 @@ import com.facebook.react.ReactInstanceManager
 import com.facebook.react.ReactRootView
 import com.panhe.rnandroid.R
 import com.panhe.rnandroid.util.ConstUtil
-import com.panhe.rnandroid.util.ReactInstanceUtil
 
 /**
  * @author: hepan
@@ -20,9 +20,7 @@ import com.panhe.rnandroid.util.ReactInstanceUtil
 class RnItemAdapter(val manager: ReactInstanceManager) :
     RecyclerView.Adapter<RnItemAdapter.MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.rn_item, parent, false)
-        )
+        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.rn_item, parent, false),manager)
     }
 
     override fun getItemCount(): Int {
@@ -30,10 +28,17 @@ class RnItemAdapter(val manager: ReactInstanceManager) :
     }
 
     override fun onBindViewHolder(holder: RnItemAdapter.MyViewHolder, position: Int) {
-        holder.showRN(manager)
+        holder.setProps()
     }
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    override fun getItemViewType(position: Int): Int {
+        return super.getItemViewType(position)
+    }
+    override fun onViewRecycled(holder: MyViewHolder) {
+        super.onViewRecycled(holder)
+    }
+
+    class MyViewHolder(itemView: View, manager: ReactInstanceManager) : RecyclerView.ViewHolder(itemView) {
         private var reactRootView: ReactRootView
         private var tvInfo: TextView
         private var tvTest: TextView
@@ -42,19 +47,18 @@ class RnItemAdapter(val manager: ReactInstanceManager) :
             reactRootView = itemView.findViewById(R.id.reactRootView)
             tvInfo = itemView.findViewById(R.id.tvInfo)
             tvTest = itemView.findViewById(R.id.tvTest)
+            tvTest.visibility = View.VISIBLE
             tvTest.setOnClickListener { changeModule() }
-            reactRootView.id = View.NO_ID
-//            setIsRecyclable(false)
+            reactRootView.startReactApplication(manager,ConstUtil.RNTestItem,Bundle().apply {
+                putInt("index",position)
+            })
         }
 
-        fun showRN(manager: ReactInstanceManager) {
-
-            if (reactRootView.reactInstanceManager != null) {
-                setManager2Null(reactRootView)
+        fun setProps() {
+            reactRootView.appProperties = Bundle().apply {
+                putInt("index",position)
             }
-
-            reactRootView.startReactApplication(manager, ConstUtil.RNTestItem)
-
+            tvInfo.setText("roottag = ${reactRootView.rootViewTag}\n hash = ${reactRootView.hashCode()}")
         }
 
         private fun setManager2Null(view: ReactRootView) {
@@ -64,11 +68,6 @@ class RnItemAdapter(val manager: ReactInstanceManager) :
         }
 
         private fun changeModule() {
-            val act = reactRootView.context as? Activity
-            act?.apply {
-                setManager2Null(reactRootView)
-                reactRootView.startReactApplication(ReactInstanceUtil.getBasicManager(act), ConstUtil.MAIN_REACT_NAME)
-            }
 
         }
     }

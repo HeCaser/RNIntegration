@@ -168,12 +168,13 @@ ReactRootView 加载 RN 代码:
  reactRootView.startReactApplication(manager, ConstUtil.RNTestItem)
 ```
 
-## 复用问题 : 崩溃
+## 直接复用崩溃
 
 问题描述: 复用时,同一个 `ReactRootView` 在第二次调用 `startReactApplication` 会抛出异常
 
-解决办法: 反射置为空
-
+解决办法1: 反射置为空
+> 只是避免了报错, 重新 `startReactApplication()` 是无效的
+> 
 ```
   private fun setManager2Null(view: ReactRootView) {
             val field = view.javaClass.getDeclaredField("mReactInstanceManager")
@@ -181,6 +182,27 @@ ReactRootView 加载 RN 代码:
             field.set(view, null)
         }
 ```
+
+解决办法2: 卸载 view 后重新加载
+
+```
+reactRootView.unmountReactApplication()
+reactRootView.startReactApplication()()
+```
+
+## 最终复用方案
+
+上面的方法2: **卸载 view 后重新加载** 虽然可以实现不同类型的 RN 页面复用,但是会产生验证的性能消耗,以及滑动卡顿, 甚至崩溃问题
+
+优化后的复用方案如下:
+
+- 所有 RN 条目对应一种 `RecyclerView.Adapter` 中的 `ItemViewType` 
+- ViewHolder 只是一个 View 壳子, 里面填充 `ReactRootView`
+- 相同的 RN 条目(注册的 Component 不同), 可以复用 `ReactRootView`, 不同的 RN 条目不可复用
+- `ReactRootView` 展示的正确性(复用导致展示异常) 在 `onBindViewHolder` 中通过 `reactRootView.setAppProperties()` 保证
+
+
+
 
 ## 复用问题: 高度变化
 

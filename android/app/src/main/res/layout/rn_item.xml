@@ -8,10 +8,11 @@
     tools:context=".activity.RnActivity">
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/tvTest"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/design_default_color_primary"
+        android:background="#44664200"
         android:gravity="center"
         android:text="测试按钮"
         android:textColor="@color/white"
@@ -37,4 +38,9 @@
         android:id="@+id/reactRootView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <View
+        android:background="@color/teal_200"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"></View>
 </LinearLayout>
