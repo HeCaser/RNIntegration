@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.facebook.react.ReactInstanceManager
 import com.facebook.react.ReactRootView
 import com.panhe.rnandroid.R
+import kotlin.random.Random
 
 /**
  * @author: hepan
@@ -93,7 +94,12 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
                 if (prop ==null){
                     prop = Bundle()
                 }
-                prop.putString("native_data","我是第${adapterPosition}个条目, 数组来自native")
+                // 验证复用时高度自适应
+                var extraData = ""
+                for (i in 0 until Random.nextInt(50)){
+                    extraData +=" $i"
+                }
+                prop.putString("native_data","我是第${adapterPosition}个条目, 数组来自native \n $extraData")
                 appProperties = prop
             }
 
