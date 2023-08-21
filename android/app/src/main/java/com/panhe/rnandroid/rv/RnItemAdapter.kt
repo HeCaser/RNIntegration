@@ -24,7 +24,10 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         println("hepan holder 创建总数 ${++count}")
         return MyViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.rn_item, parent, false), manager,pool)
+            LayoutInflater.from(parent.context).inflate(R.layout.rn_item, parent, false),
+            manager,
+            pool
+        )
     }
 
     override fun getItemCount(): Int {
@@ -43,7 +46,11 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
 
     }
 
-    class MyViewHolder(itemView: View, val manager: ReactInstanceManager,val pool:ReactRootViewPool) :
+    class MyViewHolder(
+        itemView: View,
+        val manager: ReactInstanceManager,
+        val pool: ReactRootViewPool
+    ) :
         RecyclerView.ViewHolder(itemView) {
         private var reactViewContainer: ViewGroup
         var mReactRootView: ReactRootView? = null
@@ -68,38 +75,35 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
                 reactViewContainer.addView(mReactRootView)
             } else {
                 val moduleName = mReactRootView?.jsModuleName
-                if (bean.componentName != moduleName){
-//                    println("hepan 复用 view 不同类型")
+                if (bean.componentName != moduleName) {
                     var rnView = pool.getReactRootView(bean.componentName)
-
-                    if (rnView ==null){
-                       rnView =  ReactRootView(reactViewContainer.context)
+                    if (rnView == null) {
+                        rnView = ReactRootView(reactViewContainer.context)
                         rnView.startReactApplication(manager, bean.componentName)
 
                         println("hepan 复用 view 不同类型 - 创建新的")
-                    }else{
+                    } else {
                         println("hepan 复用 view 不同类型 - 缓存获取")
                     }
                     reactViewContainer.removeAllViews()
                     reactViewContainer.addView(rnView)
                     mReactRootView = rnView
-                }else{
+                } else {
                     println("hepan 复用 view 相同类型")
                 }
-                resuse = true
             }
 
             mReactRootView?.apply {
                 var prop = appProperties
-                if (prop ==null){
+                if (prop == null) {
                     prop = Bundle()
                 }
                 // 验证复用时高度自适应
                 var extraData = ""
-                for (i in 0 until Random.nextInt(50)){
-                    extraData +=" $i"
+                for (i in 0 until Random.nextInt(50)) {
+                    extraData += " $i"
                 }
-                prop.putString("native_data","我是第${adapterPosition}个条目, 数组来自native \n $extraData")
+                prop.putString("native_data", "我是第${adapterPosition}个条目, 数组来自native \n $extraData")
                 appProperties = prop
             }
 
