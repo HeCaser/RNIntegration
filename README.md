@@ -204,7 +204,58 @@ reactRootView.startReactApplication()()
 
 - `ReactRootView` 展示的正确性(复用导致展示异常) 在 `onBindViewHolder` 中通过 `reactRootView.setAppProperties()` 设置当前 Item 状态, RN 依据 props 属性刷新
 
+具体实现:
 
+回收 ReactRootView
 
-## 复用问题: 高度变化
+``` 
+ override fun onViewRecycled(holder: MyViewHolder) {
+        super.onViewRecycled(holder)
+        pool.putReactRootView(holder.mReactRootView)
+        println("hepan 回收了 ${holder.mReactRootView?.jsModuleName}")
 
+    }
+```
+
+复用 
+
+```
+// RnItemAdapter
+ override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        val bean = dataList[position]
+        holder.loadOrUpdateView(bean)
+    }
+```
+
+方案变种:
+
+在上面的回收方案中, `pool.putReactRootView(holder.mReactRootView)` 缓存的 View 不能给其他的 Holder 使用, 只能给当前 Holer 继续使用, 因为其 mReactRootView.parent 不等于 null. 因此方案变种可以改为
+
+1. 在回收时,直接释放 mReactRootView (从父类移除)
+2. 在 Holder 中, 每次触发 onBindViewHolder 时只有一个原生 View 作为壳子,优先取缓存池的 ReactRootView, 没有同类型的话则创建一个 ReactRootView
+
+代码类似:
+
+回收时
+
+```
+  holder.mReactRootView.removeAllViews()
+  pool.putReactRootView(holder.mReactRootView)
+```
+
+复用时
+
+```
+  rnView = reactRootViewPool.getReactRootView(bean.module)
+  if (rnView == null) {
+      rnView = generateReactRootView(context, bean, rnManager)
+      showRnView(containerView, rnView)
+      tvInfo.text = "${bean.module} 没有缓存 , 创建 ReactRootView "
+  } else {
+      showRnView(containerView, rnView)
+      refresh(rnView, data)
+      tvInfo.text = "${bean.module} 从缓存池获取, 需刷新 Item"
+  }
+```
+
+----
