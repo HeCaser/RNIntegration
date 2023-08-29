@@ -9,6 +9,7 @@ import UseMemoLearn from './pages/w3c_react/UseMemoLearn.js';
 import HomePage from './pages/homepage/index.js';
 import RnItem from './pages/RnItem/index.js';
 import RnItem2 from './pages/RnItem2/index.js';
+import ChartDemo from './pages/Chart/index.js';
 
 AppRegistry.registerComponent( 'MyReactNativeApp', () => HomePage, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
@@ -16,3 +17,4 @@ AppRegistry.registerComponent( 'AddView', () => AddView, );
 AppRegistry.registerComponent( 'NativeCallBack', () => NativeCallBack, );
 AppRegistry.registerComponent( 'RnItem', () => RnItem, );
 AppRegistry.registerComponent( 'RnItem2', () => RnItem2, );
+AppRegistry.registerComponent( 'ChartDemo', () => ChartDemo, );

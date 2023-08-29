@@ -14,12 +14,21 @@ import com.panhe.rnandroid.util.ConstUtil
  * 2. ReactFragment 默认加载本地的 metro server(debug 模式). 不成功会加载 assets 目录下的 index.android.bundle
  */
 class RnFragmentActivity : AppCompatActivity(), DefaultHardwareBackBtnHandler {
+
+    companion object {
+        const val COMPONENT_NAME_KEY = "component_name_key"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rn_fragment)
 
+        var componentName = ConstUtil.MAIN_REACT_NAME
+        if (intent.extras?.containsKey(COMPONENT_NAME_KEY) == true){
+            componentName = intent?.extras!!.getString(COMPONENT_NAME_KEY)!!
+        }
         val reactNativeFragment = ReactFragment.Builder()
-            .setComponentName(ConstUtil.MAIN_REACT_NAME)
+            .setComponentName(componentName)
             .setLaunchOptions(getLaunchOptions("test message"))
             .build()
 

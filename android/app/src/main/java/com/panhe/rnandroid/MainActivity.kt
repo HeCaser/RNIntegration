@@ -3,6 +3,7 @@ package com.panhe.rnandroid
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.panhe.rnandroid.activity.RnActivity
 import com.panhe.rnandroid.activity.RnExceptionActivity
@@ -24,9 +25,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, RnFragmentActivity::class.java))
         }
 
-//        findViewById<View>(R.id.tvGoRNExe).setOnClickListener {
-//            startActivity(Intent(this@MainActivity, RnExceptionActivity::class.java))
-//        }
+        val etRn = findViewById<EditText>(R.id.etRn)
+        findViewById<View>(R.id.tvSmRN).setOnClickListener {
+            val name = etRn.text.toString().trim()
+            if (!name.isNullOrEmpty()) {
+                val bundle = Bundle().apply {
+                    putString(RnFragmentActivity.COMPONENT_NAME_KEY, name)
+                }
+                startActivity(Intent(this@MainActivity, RnFragmentActivity::class.java).apply {
+                    putExtras(bundle)
+                })
+            }
+        }
     }
 
     /**

@@ -259,3 +259,13 @@ reactRootView.startReactApplication()()
 ```
 
 ----
+
+2023-08-28
+
+# Chart Learn 
+
+install 
+
+```
+yarn add react-native-svg
+```

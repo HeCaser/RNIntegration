@@ -53,6 +53,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:background="#33ff0000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/etRn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:hint="输入要加载的 RN"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:id="@+id/tvSmRN"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:onClick="goRvRn"
+            android:text="进入 某个 RN 页面, 上面输入 AppKey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
 
 </LinearLayout>
