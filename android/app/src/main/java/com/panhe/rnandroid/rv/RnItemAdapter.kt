@@ -92,13 +92,25 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
                 }
             }
 
-
+            logTag()
+            tvInfo.postDelayed({
+                logTag()
+            },200)
+            tvInfo.postDelayed({
+                logTag()
+            },2000)
+            tvInfo.postDelayed({
+                logTag()
+            },3000)
 
             tvInfo.setText("index = ${position} roottag = ${mReactRootView?.rootViewTag} ")
 
         }
 
 
+        private fun logTag(){
+            println("hepan  RnRootView hashcode = ${mReactRootView?.hashCode()} rootTag = ${mReactRootView?.rootViewTag}")
+        }
         private fun testFund() {
             mReactRootView?.apply {
                 var prop = appProperties
@@ -106,7 +118,9 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
                     prop = Bundle()
                 }
                 val msg = if (Random.nextBoolean()) "1" else "2"
-                prop.putString("native_data_string", msg)
+
+                prop.putString("native_data_string", "$msg")
+                prop.putString("rootTag", "${mReactRootView?.rootViewTag}")
                 appProperties = prop
             }
         }

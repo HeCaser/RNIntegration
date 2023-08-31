@@ -290,3 +290,31 @@ RN 根据 props 控制 View 展示
 ```
 
 结论: 并未触发 RN 组件的刷新
+
+---
+
+2023-08-31 
+
+# RootRag 变动
+
+问题描述: `ReactRootView` 加载 JS 后, `mRootViewTag` 成员变量会被赋值, 但其值会变动
+
+![Alt text](img/rn-roottag.jpg)
+
+因此需要 mRootViewTag 的地方, 要直接在 `ReactRootView` 对象中获取
+
+```
+prop.putString("rootTag", "${mReactRootView?.rootViewTag}")
+```
+
+## RN 获取当前组件的 RootTag (版本 >= 0.66)
+
+```
+import {RootTagContext} from 'react-native';
+
+function ScreenA() {
+  const rootTag = useContext(RootTagContext);
+
+  ...
+}
+
