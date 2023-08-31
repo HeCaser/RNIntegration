@@ -61,14 +61,13 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
             reactViewContainer = itemView.findViewById(R.id.reactViewContainer)
             tvInfo = itemView.findViewById(R.id.tvInfo)
             tvTest = itemView.findViewById(R.id.tvTest)
-//            tvTest.visibility = View.VISIBLE
-            tvTest.setOnClickListener { changeModule() }
+            tvTest.visibility = View.VISIBLE
+            tvTest.setOnClickListener { testFund() }
 
         }
 
         fun loadOrUpdateView(bean: RnItemData) {
 
-            var resuse = false
             if (mReactRootView == null) {
                 mReactRootView = ReactRootView(reactViewContainer.context)
                 mReactRootView?.startReactApplication(manager, bean.componentName)
@@ -93,27 +92,23 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
                 }
             }
 
-            mReactRootView?.apply {
-                var prop = appProperties
-                if (prop == null) {
-                    prop = Bundle()
-                }
-                // 验证复用时高度自适应
-                var extraData = ""
-                for (i in 0 until Random.nextInt(50)) {
-                    extraData += " $i"
-                }
-                prop.putString("native_data", "我是第${adapterPosition}个条目, 数组来自native \n $extraData")
-                appProperties = prop
-            }
+
 
             tvInfo.setText("index = ${position} roottag = ${mReactRootView?.rootViewTag} ")
 
         }
 
 
-        private fun changeModule() {
-
+        private fun testFund() {
+            mReactRootView?.apply {
+                var prop = appProperties
+                if (prop == null) {
+                    prop = Bundle()
+                }
+                val msg = if (Random.nextBoolean()) "1" else "2"
+                prop.putString("native_data_string", msg)
+                appProperties = prop
+            }
         }
     }
 

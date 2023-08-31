@@ -260,12 +260,33 @@ reactRootView.startReactApplication()()
 
 ----
 
-2023-08-28
+2023-08-31 
 
-# Chart Learn 
+# 验证 setAppProperties 是否导致 RN 组件重建
 
-install 
+继续上面的复用逻辑, 有同事反馈在调用 `setAppProperties(@Nullable Bundle appProperties) ` 时. 整个 RN 组件会重新渲染,从而导致触发了不必要的网络请求.
+
+实测在 Native 侧调用 `setAppProperties`
 
 ```
-yarn add react-native-svg
+ private fun testFund() {
+      mReactRootView?.apply {
+          var prop = appProperties
+          if (prop == null) {
+              prop = Bundle()
+          }
+          val msg = if (Random.nextBoolean()) "1" else "2"
+          prop.putString("native_data_string", msg)
+          appProperties = prop
+      }
+  }
 ```
+
+RN 根据 props 控制 View 展示
+
+```
+{props.native_data_string === '1' &&  <Text>从移动端获取的数据是1 {props.native_data}</Text>}
+{props.native_data_string !=="1" &&  <Text>从移动端获取的数据不是1 {props.native_data}</Text>}
+```
+
+结论: 并未触发 RN 组件的刷新
