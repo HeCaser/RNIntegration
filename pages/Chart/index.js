@@ -21,12 +21,12 @@
 //     Pattern,
 //     Mask,
 //   } from 'react-native-svg';
-// import React, { useEffect, useState } from 'react';
-// import { ScrollView, Text, View, Image } from 'react-native';
+
+// import React from 'react';
+// import { View, StyleSheet } from 'react-native';
 
 // function ChartDemo(props) {
 
-//     const [isAddWeChat, setIsAddWeChat] = useState(true)
 //     return (
 //         <View>
 //             <Svg height="100" width="100">
