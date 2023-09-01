@@ -295,7 +295,9 @@ RN 根据 props 控制 View 展示
 
 2023-08-31 
 
-# RootRag 变动
+# ReactRootView 的 RootTag 相关
+
+## RootTag 会变动
 
 问题描述: `ReactRootView` 加载 JS 后, `mRootViewTag` 成员变量会被赋值, 但其值会变动
 
@@ -317,4 +319,26 @@ function ScreenA() {
 
   ...
 }
+```
 
+## 移动端修改 RootTag
+
+`ReactRootView` 对外暴露修改 `mRootViewTag` 变量值的方法
+
+```
+ public void setRootViewTag(int rootViewTag) {
+      this.mRootViewTag = rootViewTag;
+  }
+```
+当移动端随机设置了 RootTag , 随后调用设置属性方法,会导致 UIManager 找不到原有 tag 的 node 而导致报错(release 则 崩溃)
+
+```
+ mReactRootView?.apply {
+    val randomTag = Random.nextInt(200)
+    this.rootViewTag = randomTag // 设置 rootTag
+    appProperties = prop // 报错
+}
+
+```
+
+---

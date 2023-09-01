@@ -91,26 +91,8 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
                     println("hepan 复用 view 相同类型")
                 }
             }
-
-            logTag()
-            tvInfo.postDelayed({
-                logTag()
-            },200)
-            tvInfo.postDelayed({
-                logTag()
-            },2000)
-            tvInfo.postDelayed({
-                logTag()
-            },3000)
-
-            tvInfo.setText("index = ${position} roottag = ${mReactRootView?.rootViewTag} ")
-
         }
 
-
-        private fun logTag(){
-            println("hepan  RnRootView hashcode = ${mReactRootView?.hashCode()} rootTag = ${mReactRootView?.rootViewTag}")
-        }
         private fun testFund() {
             mReactRootView?.apply {
                 var prop = appProperties
@@ -121,6 +103,8 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
 
                 prop.putString("native_data_string", "$msg")
                 prop.putString("rootTag", "${mReactRootView?.rootViewTag}")
+                val randomTag = Random.nextInt(200)
+                this.rootViewTag = randomTag
                 appProperties = prop
             }
         }
