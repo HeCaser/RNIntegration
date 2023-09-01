@@ -103,8 +103,6 @@ class RnItemAdapter(private val dataList: List<RnItemData>, val manager: ReactIn
 
                 prop.putString("native_data_string", "$msg")
                 prop.putString("rootTag", "${mReactRootView?.rootViewTag}")
-                val randomTag = Random.nextInt(200)
-                this.rootViewTag = randomTag
                 appProperties = prop
             }
         }
