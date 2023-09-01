@@ -343,3 +343,22 @@ function ScreenA() {
 
 ---
 
+2023-09-01
+
+# react-native-svg
+
+添加依赖  [react-native-svg 地址](https://github.com/software-mansion/react-native-svg)
+
+```
+yarn add react-native-svg
+```
+添加之后遇到 gradle 配置问题: App 依赖新的配置方案, react 依赖旧的 gradle 配置方案 从而导致冲突.
+
+[解决办法](https://stackoverflow.com/questions/69163511/build-was-configured-to-prefer-settings-repositories-over-project-repositories-b)
+
+因为无法修改 react ,所以解决方案为: 统一改为旧配置
+
+就他代码修改,见提交: 
+
+https://github.com/HeCaser/RNIntegration/commit/ed4ff41f191b787ffbc665b101f4c3cc93559e41
+
