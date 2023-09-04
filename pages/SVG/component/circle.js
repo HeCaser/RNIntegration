@@ -5,8 +5,8 @@ import { View, StyleSheet, Text } from 'react-native';
 function CircleDemo() {
 
     return (
-        <View >
-            <Svg height="50%" width="50%" viewBox='0 0 50 50' style={{ backgroundColor: '#0ff' }}>
+        <View width={"100%"} height={60}>
+            <Svg height="90%" width="50%" viewBox='0 0 50 50' style={{ backgroundColor: '#0ff' }}>
                 <Circle cx={25} cy={25} r={25} fill={"#f00"}></Circle>
             </Svg>
         </View>
