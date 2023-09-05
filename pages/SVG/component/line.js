@@ -12,8 +12,10 @@ function LineDemo() {
     }
 
     return (
-        <View width={"100%"} height={60} onLayout={onLayout}>
-            <Svg height="90%" width="100%" style={{ backgroundColor: '#0ff' }}>
+        <View width={"100%"} height={60} onLayout={onLayout} >
+            <Svg height="90%" width="100%" style={{ backgroundColor: '#0ff' }} onPress={()=>{
+                alert(0)
+            }}>
                 <Line x1={0} y1={25} x2={width} y2={25} strokeWidth={0.5} stroke="red" > </Line>
             </Svg>
         </View>

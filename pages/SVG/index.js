@@ -27,6 +27,7 @@ import { View, StyleSheet } from 'react-native';
 import CircleDemo from './component/circle';
 import DraggableProgressBar from '../CustomComponent/DraggableProgressBar';
 import LineDemo from './component/line';
+import DraggableView from '../CustomComponent/DraggableView';
 
 function ChartDemo(props) {
 
@@ -34,6 +35,7 @@ function ChartDemo(props) {
         <View>
             <CircleDemo></CircleDemo>
             <LineDemo></LineDemo>
+            <DraggableView></DraggableView>
         </View>
     )
 }
