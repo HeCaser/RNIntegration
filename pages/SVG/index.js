@@ -28,14 +28,16 @@ import CircleDemo from './component/circle';
 import DraggableProgressBar from '../CustomComponent/DraggableProgressBar';
 import LineDemo from './component/line';
 import DraggableView from '../CustomComponent/DraggableView';
+import BaseChart from '../CustomComponent/chart/BaseChart';
 
 function ChartDemo(props) {
 
     return (
         <View>
-            <CircleDemo></CircleDemo>
+            {/* <CircleDemo></CircleDemo>
             <LineDemo></LineDemo>
-            <DraggableView></DraggableView>
+            <DraggableView></DraggableView> */}
+            <BaseChart></BaseChart>
         </View>
     )
 }

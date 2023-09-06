@@ -12,7 +12,7 @@ function LineDemo() {
     }
 
     return (
-        <View width={"100%"} height={60} onLayout={onLayout} >
+        <View width={"100%"} height={60} onLayout={onLayout}  >
             <Svg height="90%" width="100%" style={{ backgroundColor: '#0ff' }} onPress={()=>{
                 alert(0)
             }}>
