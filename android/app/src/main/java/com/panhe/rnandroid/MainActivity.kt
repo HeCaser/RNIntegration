@@ -5,8 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.panhe.rnandroid.activity.RnActivity
-import com.panhe.rnandroid.activity.RnExceptionActivity
+import com.panhe.rnandroid.activity.RnCustomFragmentActivity
 import com.panhe.rnandroid.activity.RnFragmentActivity
 import com.panhe.rnandroid.rv.RnItemActivity
 
@@ -18,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
 
         findViewById<View>(R.id.tvGoRN).setOnClickListener {
-            startActivity(Intent(this@MainActivity, RnActivity::class.java))
+            startActivity(Intent(this@MainActivity, RnCustomFragmentActivity::class.java))
         }
 
         findViewById<View>(R.id.tvGoRNFragment).setOnClickListener {
@@ -32,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 val bundle = Bundle().apply {
                     putString(RnFragmentActivity.COMPONENT_NAME_KEY, name)
                 }
-                startActivity(Intent(this@MainActivity, RnFragmentActivity::class.java).apply {
+                startActivity(Intent(this@MainActivity, RnCustomFragmentActivity::class.java).apply {
                     putExtras(bundle)
                 })
             }

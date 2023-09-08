@@ -84,7 +84,7 @@ class CustomRNFragment : Fragment() {
         if (mainComponentName == null) {
             throw IllegalStateException("Cannot loadApp if component name is null")
         } else {
-            reactRootView.startReactApplication(reactInstanceManager, mainComponentName, null)
+            reactRootView.startReactApplication(reactInstanceManager, mainComponentName, launchOptions)
         }
     }
 

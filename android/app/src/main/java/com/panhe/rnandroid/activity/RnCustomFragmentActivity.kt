@@ -17,7 +17,7 @@ import com.panhe.rnandroid.util.ConstUtil
 /**
  * 创建自定义 CustomRNFragment , 展示在 RnActivity 中
  */
-class RnActivity : AppCompatActivity() {
+class RnCustomFragmentActivity : AppCompatActivity() {
 
     companion object {
         const val OVERLAY_PERMISSION_REQ_CODE = 1  // Choose any value
@@ -41,8 +41,13 @@ class RnActivity : AppCompatActivity() {
             }
         }
 
+        var componentName = ConstUtil.MAIN_REACT_NAME
+        if (intent.extras?.containsKey(RnFragmentActivity.COMPONENT_NAME_KEY) == true){
+            componentName = intent?.extras!!.getString(RnFragmentActivity.COMPONENT_NAME_KEY)!!
+        }
+
         // 设置要展示的页面
-        mRnFragment = CustomRNFragment.newInstance(ConstUtil.MAIN_REACT_NAME, null)
+        mRnFragment = CustomRNFragment.newInstance(componentName, null)
 
 
         supportFragmentManager
@@ -63,7 +68,7 @@ class RnActivity : AppCompatActivity() {
 
     private fun runTestFun() {
         Toast.makeText(this,"click",Toast.LENGTH_SHORT).show()
-        startActivity(Intent(this, RnActivity::class.java))
+        startActivity(Intent(this, RnCustomFragmentActivity::class.java))
     }
 
 

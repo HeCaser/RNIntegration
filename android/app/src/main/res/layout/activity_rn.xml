@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.RnActivity">
+    tools:context=".activity.RnCustomFragmentActivity">
 
     <TextView
         android:id="@+id/tvTest"
@@ -23,6 +23,5 @@
     <FrameLayout
         android:id="@+id/RnContainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp" />
+        android:layout_height="match_parent" />
 </LinearLayout>

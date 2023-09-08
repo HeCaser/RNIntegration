@@ -60,7 +60,6 @@
         android:orientation="vertical">
 
         <EditText
-            android:text="WindowSizeDemo"
             android:id="@+id/etRn"
             android:layout_width="match_parent"
             android:layout_height="60dp"
