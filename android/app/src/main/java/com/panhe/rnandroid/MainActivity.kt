@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.panhe.rnandroid.activity.RnCustomFragmentActivity
 import com.panhe.rnandroid.activity.RnFragmentActivity
 import com.panhe.rnandroid.rv.RnItemActivity
+import com.panhe.rnandroid.util.SpUtil
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,10 +25,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, RnFragmentActivity::class.java))
         }
 
+
         val etRn = findViewById<EditText>(R.id.etRn)
+        // 取历史记录赋值
+        val cacheName = SpUtil.getRnName(this)
+        if (cacheName.isNotEmpty()) {
+            etRn.setText(cacheName)
+        }
+
         findViewById<View>(R.id.tvSmRN).setOnClickListener {
             val name = etRn.text.toString().trim()
-            if (!name.isNullOrEmpty()) {
+            if (name.isNotEmpty()) {
+                SpUtil.saveRnName(this,name)
                 val bundle = Bundle().apply {
                     putString(RnFragmentActivity.COMPONENT_NAME_KEY, name)
                 }
