@@ -17,6 +17,7 @@ import com.facebook.soloader.SoLoader
 import com.panhe.rnandroid.BuildConfig
 import com.panhe.rnandroid.util.ConstUtil
 import com.panhe.rnandroid.util.RNCommonUtil
+import com.panhe.rnandroid.util.ReactInstanceUtil
 
 /**
  * @author: hepan
@@ -53,16 +54,10 @@ class CustomRNFragment : Fragment() {
         // Packages that cannot be autolinked yet can be added manually here, for example:
         // packages.add(MyReactNativePackage())
         // Remember to include them in `settings.gradle` and `app/build.gradle` too.
-        reactInstanceManager = ReactInstanceManager.builder()
-            .setApplication(activity?.application)
-            .setCurrentActivity(activity)
-            .setBundleAssetName("index.android.bundle")
-            .setJSMainModulePath("index")
-            .addPackages(packages)
-            .setUseDeveloperSupport(ConstUtil.IS_DEBUG)
-            .setInitialLifecycleState(LifecycleState.RESUMED)
-            .setJavaScriptExecutorFactory(HermesExecutorFactory())
-            .build()
+
+        reactInstanceManager = ReactInstanceUtil.getBasicManager(requireActivity())
+
+
     }
 
     override fun onCreateView(
