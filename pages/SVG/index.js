@@ -37,7 +37,7 @@ function ChartDemo(props) {
             {/* <CircleDemo></CircleDemo>
             <LineDemo></LineDemo>
             <DraggableView></DraggableView> */}
-            <BaseChart></BaseChart>
+            <DraggableView></DraggableView>
         </View>
     )
 }

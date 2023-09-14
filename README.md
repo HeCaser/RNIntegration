@@ -362,3 +362,13 @@ yarn add react-native-svg
 
 https://github.com/HeCaser/RNIntegration/commit/ed4ff41f191b787ffbc665b101f4c3cc93559e41
 
+---
+
+# 2023-09-08 
+
+# DraggableView
+
+[DraggableView 源代码](pages/CustomComponent/DraggableView.tsx)
+
+拖动 View, 松开后回到原位:  用到了 **手势 & 动画** 相关 API
+
