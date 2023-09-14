@@ -47,7 +47,7 @@ function MultiLine(props) {
                             points={points[index]}
                             strokeWidth={1}
                             strokeLinejoin='round'
-                            stroke={line.lineStyle?.color} />
+                            stroke={line.lineStyle?.color || '#000'} />
                     )
                 })
             }
