@@ -1,11 +1,11 @@
 [
     {
-        "fund_point": "0.0",
-        "stock_point": "0.0"
+        "fund_point": "0",
+        "stock_point": "0"
     },
     {
         "fund_point": "-0.03451",
-        "stock_point": "-.020639"
+        "stock_point": "-0.020639"
     },
     {
         "fund_point": "-0.054575",
@@ -96,7 +96,7 @@
         "stock_point": "-0.087167"
     },
     {
-        "fund_point": "-0.140449",
+        "fund_point": "-0.240449",
         "stock_point": "-0.079521"
     },
     {

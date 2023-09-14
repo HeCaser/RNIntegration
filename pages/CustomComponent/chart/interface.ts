@@ -13,12 +13,8 @@ export interface IBaseChartModel  {
   /**
  * 折线配置
  */
-export interface IBaseChartSeries<T extends IBaseChartModel = IBaseChartModel> {
+export interface IBaseChartSeries<T extends IBaseChartModel> {
     data: T[]
-  
-    key: string
-  
-    name?: string
   
     /* 指定折线端点的最大数量, 超出部分截断 */
     maximumSize?: number

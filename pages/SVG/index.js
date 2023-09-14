@@ -29,6 +29,7 @@ import DraggableProgressBar from '../CustomComponent/DraggableProgressBar';
 import LineDemo from './component/line';
 import DraggableView from '../CustomComponent/DraggableView';
 import BaseChart from '../CustomComponent/chart/BaseChart';
+import MultiLineDemo from '../CustomComponent/chart/MultiLine';
 
 function ChartDemo(props) {
 
@@ -37,7 +38,7 @@ function ChartDemo(props) {
             {/* <CircleDemo></CircleDemo>
             <LineDemo></LineDemo>
             <DraggableView></DraggableView> */}
-            <BaseChart></BaseChart>
+            <MultiLineDemo></MultiLineDemo>
         </View>
     )
 }
