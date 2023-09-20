@@ -2,20 +2,15 @@ package com.panhe.rnandroid.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.facebook.hermes.reactexecutor.HermesExecutorFactory
 import com.facebook.react.PackageList
 import com.facebook.react.ReactInstanceManager
 import com.facebook.react.ReactPackage
 import com.facebook.react.ReactRootView
-import com.facebook.react.common.LifecycleState
 import com.facebook.soloader.SoLoader
-import com.panhe.rnandroid.BuildConfig
-import com.panhe.rnandroid.util.ConstUtil
 import com.panhe.rnandroid.util.RNCommonUtil
 import com.panhe.rnandroid.util.ReactInstanceUtil
 
