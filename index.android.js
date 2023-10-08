@@ -8,6 +8,7 @@ import RnItem2 from './pages/RnItem2/index.js';
 import ChartDemo from './pages/SVG/index.js';
 import WindowSizeDemo from './pages/RnBasic/WindowSizeDemo/index.js';
 import RnBasicDemo from './pages/RnBasic/RnBasicDemo.js';
+import SnowBoxDemo from './pages/SnowBox/index.tsx';
 
 AppRegistry.registerComponent( 'MyReactNativeApp', () => HomePage, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
@@ -17,3 +18,4 @@ AppRegistry.registerComponent( 'RnItem2', () => RnItem2, );
 AppRegistry.registerComponent( 'ChartDemo', () => ChartDemo, );
 AppRegistry.registerComponent( 'WindowSizeDemo', () => WindowSizeDemo, );
 AppRegistry.registerComponent( 'RnBasicDemo', () => RnBasicDemo, );
+AppRegistry.registerComponent( 'SnowBoxDemo', () => SnowBoxDemo, );
