@@ -30,6 +30,7 @@ import LineDemo from './component/line';
 import DraggableView from '../CustomComponent/DraggableView';
 import BaseChart from '../CustomComponent/chart/BaseChart';
 import MultiLineDemo from '../CustomComponent/chart/MultiLine';
+import PathDemo from './component/path';
 
 function ChartDemo(props) {
 
@@ -38,7 +39,8 @@ function ChartDemo(props) {
             {/* <CircleDemo></CircleDemo>
             <LineDemo></LineDemo>
             <DraggableView></DraggableView> */}
-            <MultiLineDemo></MultiLineDemo>
+            {/* <MultiLineDemo></MultiLineDemo> */}
+            <PathDemo></PathDemo>
         </View>
     )
 }
