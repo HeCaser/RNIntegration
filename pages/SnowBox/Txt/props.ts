@@ -1,8 +1,14 @@
 import { TextProps } from "react-native";
 
 export interface TxtTypes extends TextProps {
-    /**
-    * suffix 后缀 , 模拟功能扩展, 在文案末尾加上后缀
-    */
-    suffix?: string;
+  /**
+   * 颜色简称, 最终转换为 color
+   */
+  cl?:string; 
+  f?:number;
 }
+
+export const fontProps = {
+  cl: { property: 'color' },
+  f: { property: 'fontSize' },
+};

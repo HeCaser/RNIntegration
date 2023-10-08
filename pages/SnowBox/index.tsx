@@ -5,8 +5,8 @@ import Txt from './Txt';
 const SnowBoxDemo = () => {
 
     return (<ScrollView>
-        <Txt suffix='txt'>我是 Txt</Txt>
-        <Txt suffix='md'>我是 MarkDown</Txt>
+        <Txt cl='#f00' f={14}>我是 Txt</Txt>
+        <Txt cl='#00f' f={20}>我是 MarkDown</Txt>
     </ScrollView>)
 }
 
