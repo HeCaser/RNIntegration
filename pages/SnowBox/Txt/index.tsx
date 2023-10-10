@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TextStyle, TextProps } from 'react-native';
-import { TxtTypes, fontProps } from './props';
+import { TxtTypes, ViewProps } from '../props/props';
 
 /***
  * Txt 是对 Text 的封装, 
@@ -14,22 +14,14 @@ const Txt = ({ style, children, ...props }: TxtTypes) => {
     };
 
     Object.keys(newProps).map((item) => {
-        if (item in fontProps) {
-            console.log(`hepan key = ${item} realkey = ${fontProps[item].property}`)
-            // 转换 cl 属性为 color
-            if (item === 'cl' && newProps.cl) {
-                fontStylesObj[fontProps[item].property] = newProps[item]
-            }
-            // 转换 f 属性为 fontSize
-            if (item === 'f' && newProps.f) {
-                fontStylesObj[fontProps[item].property] = newProps[item]
-            }
-
+        // 转换属性简称
+        if (item in ViewProps) {
+            console.log(`hepan key = ${item} realkey = ${ViewProps[item].property}`)
+            fontStylesObj[ViewProps[item].property] = newProps[item]
         }
     })
 
     // console.log(`hepan res = ${JSON.stringify(fontStylesObj)}`)
-
 
     return (
         <Text style={[fontStylesObj, style]}>{children}</Text>
