@@ -21,7 +21,7 @@ const Txt = ({ style, children, ...props }: TxtTypes) => {
         }
     })
 
-    // console.log(`hepan res = ${JSON.stringify(fontStylesObj)}`)
+    console.log(`hepan res = ${JSON.stringify(fontStylesObj)}`)
 
     return (
         <Text style={[fontStylesObj, style]}>{children}</Text>
