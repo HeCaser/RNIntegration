@@ -16,12 +16,10 @@ const Txt = ({ style, children, ...props }: TxtTypes) => {
     Object.keys(newProps).map((item) => {
         // 转换属性简称
         if (item in ViewProps) {
-            console.log(`hepan key = ${item} realkey = ${ViewProps[item].property}`)
             fontStylesObj[ViewProps[item].property] = newProps[item]
         }
     })
 
-    console.log(`hepan res = ${JSON.stringify(fontStylesObj)}`)
 
     return (
         <Text style={[fontStylesObj, style]}>{children}</Text>
