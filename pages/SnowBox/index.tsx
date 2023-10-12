@@ -10,7 +10,7 @@ const SnowBoxDemo = () => {
         <Txt cl='#00f' f={20} bg='#0ff' pl={10} pt={10}>随机文案,打发打发打付款哈发打发阿达地方阿道夫 </Txt>
         <View style={{ width: 10, height: 10, backgroundColor: '#00f', transform: [{ rotate: '45deg' }] }}></View> */}
 
-        <FontSizeAdapTxt>we</FontSizeAdapTxt>
+        <FontSizeAdapTxt appFontSize={1}>we</FontSizeAdapTxt>
     </ScrollView>)
 }
 

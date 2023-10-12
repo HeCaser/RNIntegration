@@ -45,7 +45,7 @@ const FontSizeAdapTxt = ({ style, children, txtType, appFontSize, ...props }: Fo
     }
 
     return (<Txt style={style} {...props} {...newProps}>
-        {children}
+        {children} 字号 ={newProps.f}
     </Txt>)
 }
 
