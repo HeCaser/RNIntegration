@@ -289,7 +289,10 @@ RN 根据 props 控制 View 展示
 {props.native_data_string !=="1" &&  <Text>从移动端获取的数据不是1 {props.native_data}</Text>}
 ```
 
-结论: 并未触发 RN 组件的刷新
+现象: Demo 中没有重建, 但是 App 中确实重建了
+原因:
+在 App 中, 注册的组件统一包裹了一层 `AppRegistry.registerComponent(route.appKey, () => Wrapper(route.module, route.theme));`
+由于 `Wrapper` 多了一层,导致 RN 组件重建了,
 
 ---
 
