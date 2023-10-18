@@ -67,8 +67,12 @@ class RnCustomFragmentActivity : AppCompatActivity() {
     }
 
     private fun runTestFun() {
-        Toast.makeText(this,"click",Toast.LENGTH_SHORT).show()
-        startActivity(Intent(this, RnCustomFragmentActivity::class.java))
+
+        mRnFragment?.getRootRnView()?.apply {
+            val bundle = Bundle()
+            bundle.putString("param","${Math.random()}")
+            this.appProperties = bundle
+        }
     }
 
 

@@ -27,6 +27,7 @@ class CustomRNFragment : Fragment() {
     private lateinit var reactInstanceManager: ReactInstanceManager
 
     private var resumeTime = 1
+
     companion object {
         fun newInstance(componentName: String, launchOptions: Bundle?): CustomRNFragment {
             val fragment = CustomRNFragment()
@@ -74,14 +75,22 @@ class CustomRNFragment : Fragment() {
         if (mainComponentName == null) {
             throw IllegalStateException("Cannot loadApp if component name is null")
         } else {
-            reactRootView.startReactApplication(reactInstanceManager, mainComponentName, launchOptions)
+            reactRootView.startReactApplication(
+                reactInstanceManager,
+                mainComponentName,
+                launchOptions
+            )
         }
     }
 
     override fun onResume() {
         super.onResume()
         this.reactInstanceManager.onHostResume(activity)
-        RNCommonUtil.sendEventToJs(reactInstanceManager,"viewWillAppear", "页面可见了,次数 =${resumeTime++}")
+        RNCommonUtil.sendEventToJs(
+            reactInstanceManager,
+            "viewWillAppear",
+            "页面可见了,次数 =${resumeTime++}"
+        )
     }
 
     override fun onPause() {
@@ -96,5 +105,9 @@ class CustomRNFragment : Fragment() {
 
     fun getRnManager(): ReactInstanceManager {
         return reactInstanceManager
+    }
+
+    fun getRootRnView(): ReactRootView {
+        return reactRootView
     }
 }

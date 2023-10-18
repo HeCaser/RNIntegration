@@ -13,7 +13,8 @@ function RnItem2(props) {
     }, [])
 
     function hh() {
-        alert('调用')
+        let d =  Date()
+        alert(typeof d)
     }
     const [isAddWeChat, setIsAddWeChat] = useState(true)
 
