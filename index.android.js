@@ -14,7 +14,7 @@ import Wrapper from './pages/RnItem/Wrap.js';
 AppRegistry.registerComponent( 'MyReactNativeApp', () => HomePage, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
 AppRegistry.registerComponent( 'NativeCallBack', () => NativeCallBack, );
-AppRegistry.registerComponent( 'RnItem', () => Wrapper(RnItem), );
+AppRegistry.registerComponent( 'RnItem', () => RnItem, );
 AppRegistry.registerComponent( 'RnItem2', () => RnItem2, );
 AppRegistry.registerComponent( 'ChartDemo', () => ChartDemo, );
 AppRegistry.registerComponent( 'WindowSizeDemo', () => WindowSizeDemo, );
