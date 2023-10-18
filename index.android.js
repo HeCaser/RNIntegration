@@ -9,12 +9,12 @@ import ChartDemo from './pages/SVG/index.js';
 import WindowSizeDemo from './pages/RnBasic/WindowSizeDemo/index.js';
 import RnBasicDemo from './pages/RnBasic/RnBasicDemo.js';
 import SnowBoxDemo from './pages/SnowBox/index.tsx';
-import Child from './pages/RnItem/index.js';
+import Wrapper from './pages/RnItem/Wrap.js';
 
 AppRegistry.registerComponent( 'MyReactNativeApp', () => HomePage, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
 AppRegistry.registerComponent( 'NativeCallBack', () => NativeCallBack, );
-AppRegistry.registerComponent( 'RnItem', () => RnItem, );
+AppRegistry.registerComponent( 'RnItem', () => Wrapper(RnItem), );
 AppRegistry.registerComponent( 'RnItem2', () => RnItem2, );
 AppRegistry.registerComponent( 'ChartDemo', () => ChartDemo, );
 AppRegistry.registerComponent( 'WindowSizeDemo', () => WindowSizeDemo, );
