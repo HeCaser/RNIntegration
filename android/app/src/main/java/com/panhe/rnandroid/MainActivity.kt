@@ -7,6 +7,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.panhe.rnandroid.activity.RnCustomFragmentActivity
 import com.panhe.rnandroid.activity.RnFragmentActivity
+import com.panhe.rnandroid.activity.RnItemViewActivity
 import com.panhe.rnandroid.rv.RnItemActivity
 import com.panhe.rnandroid.util.SpUtil
 
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.tvGoRNFragment).setOnClickListener {
             startActivity(Intent(this@MainActivity, RnFragmentActivity::class.java))
         }
+        findViewById<View>(R.id.tvGoRvView).setOnClickListener {
+            startActivity(Intent(this@MainActivity, RnItemViewActivity::class.java))
+        }
 
 
         val etRn = findViewById<EditText>(R.id.etRn)
@@ -36,13 +40,17 @@ class MainActivity : AppCompatActivity() {
         findViewById<View>(R.id.tvSmRN).setOnClickListener {
             val name = etRn.text.toString().trim()
             if (name.isNotEmpty()) {
-                SpUtil.saveRnName(this,name)
+                SpUtil.saveRnName(this, name)
                 val bundle = Bundle().apply {
                     putString(RnFragmentActivity.COMPONENT_NAME_KEY, name)
                 }
-                startActivity(Intent(this@MainActivity, RnCustomFragmentActivity::class.java).apply {
-                    putExtras(bundle)
-                })
+                startActivity(
+                    Intent(
+                        this@MainActivity,
+                        RnCustomFragmentActivity::class.java
+                    ).apply {
+                        putExtras(bundle)
+                    })
             }
         }
     }

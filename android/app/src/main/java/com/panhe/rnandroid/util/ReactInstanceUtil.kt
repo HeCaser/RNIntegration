@@ -31,7 +31,7 @@ object ReactInstanceUtil {
                 .setCurrentActivity(act)
                 .addPackages(packages)
                 .setUseDeveloperSupport(ConstUtil.IS_DEBUG)
-                .setInitialLifecycleState(LifecycleState.RESUMED)
+                .setInitialLifecycleState(LifecycleState.BEFORE_CREATE)
                 .setJavaScriptExecutorFactory(HermesExecutorFactory())
                 .build()
         }

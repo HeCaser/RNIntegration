@@ -13,6 +13,7 @@ import com.facebook.react.ReactRootView
 import com.facebook.soloader.SoLoader
 import com.panhe.rnandroid.util.RNCommonUtil
 import com.panhe.rnandroid.util.ReactInstanceUtil
+import org.json.JSONObject
 
 /**
  * @author: hepan
@@ -67,10 +68,9 @@ class CustomRNFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var mainComponentName: String? = null
-        var launchOptions: Bundle? = null
+        var launchOptions= Bundle()
         if (this.arguments != null) {
             mainComponentName = this.requireArguments().getString("arg_component_name")
-            launchOptions = this.requireArguments().getBundle("arg_launch_options")
         }
         if (mainComponentName == null) {
             throw IllegalStateException("Cannot loadApp if component name is null")
