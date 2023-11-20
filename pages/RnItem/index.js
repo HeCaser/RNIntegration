@@ -1,32 +1,39 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AppRegistry, Button, StyleSheet, Text, View, Image } from 'react-native';
+import TsLearn from '../TSLearn/TsLearn';
 
 const logmsg = 'hepan lifecycle  '
 
-function RnItem(props) {
+function RnItem({native_data}) {
 
+
+    useEffect(()=>{
+    },[])
     const a = useRef(0)
     const [isAddWeChat, setIsAddWeChat] = useState(true)
 
-    function hh() {
-        console.log('hepan 哈哈')
-    }
+  
     useEffect(() => {
         console.log('hepan 哈哈66')
     }, [])
 
     a.current += 1
 
+
+
+
     return (
         <View>
             <Text style={{ color: '#007AFF' }}>RnItem </Text>
             <Text>我的状态 {`${isAddWeChat}`}</Text>
-            <Text>Native 传递的参数 param = {`${props.param}`}</Text>
+            <Text>Native 传递的参数 param = {`${JSON.stringify(JSON.stringify(native_data))}`}</Text>
             <Text>a = {`${a.current}`}</Text>
             <Button onPress={() => {
+                alert(0)
                 setIsAddWeChat(!isAddWeChat)
             }} title='我是 RnItem'></Button>
             <Image source={require('./fund_hot.png')} style={{ width: '100%', height: 120 }} />
+            <TsLearn></TsLearn>
         </View>
     )
 }

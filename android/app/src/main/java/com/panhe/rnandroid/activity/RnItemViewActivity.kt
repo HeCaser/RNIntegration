@@ -26,6 +26,7 @@ class RnItemViewActivity : AppCompatActivity() {
         val manager = ReactInstanceUtil.getBasicManager(this)
         rn.startReactApplication(manager, "RnItem")
 
+        manager.onHostResume(this)
         frameLayout.removeAllViews()
         frameLayout.addView(rn)
     }

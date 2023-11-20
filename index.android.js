@@ -10,6 +10,7 @@ import WindowSizeDemo from './pages/RnBasic/WindowSizeDemo/index.js';
 import RnBasicDemo from './pages/RnBasic/RnBasicDemo.js';
 import SnowBoxDemo from './pages/SnowBox/index.tsx';
 import Wrapper from './pages/RnItem/Wrap.js';
+import MemoDemo from './pages/MemoDemo/MemoDemo.js';
 
 AppRegistry.registerComponent( 'MyReactNativeApp', () => HomePage, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
@@ -20,3 +21,4 @@ AppRegistry.registerComponent( 'ChartDemo', () => ChartDemo, );
 AppRegistry.registerComponent( 'WindowSizeDemo', () => WindowSizeDemo, );
 AppRegistry.registerComponent( 'RnBasicDemo', () => RnBasicDemo, );
 AppRegistry.registerComponent( 'SnowBoxDemo', () => SnowBoxDemo, );
+AppRegistry.registerComponent( 'MemoDemo', () => MemoDemo, );

@@ -375,3 +375,27 @@ https://github.com/HeCaser/RNIntegration/commit/ed4ff41f191b787ffbc665b101f4c3cc
 
 拖动 View, 松开后回到原位:  用到了 **手势 & 动画** 相关 API
 
+
+# 2023-11-17
+
+Android 无法展示 Alert 等弹框组件, 提示 Tried to show an alert while not attached to an Anctivity.
+
+原因: RN 管理器生命周期错误
+
+初始化时设置为 `setInitialLifecycleState(LifecycleState.BEFORE_CREATE)`后续没有随着页面的可见更新状态.
+
+解决: 
+
+方案1: 修改管理器初始化状态
+
+```java
+ ReactInstanceManager.builder()  
+     .setInitialLifecycleState(LifecycleState.RESUMED)
+ 
+```
+
+方案2: 适当时机,调用下面 API 修改,使页面保持可见状态
+```
+ReactInstanceManager#onHostResume(android.app.Activity)
+```
+
