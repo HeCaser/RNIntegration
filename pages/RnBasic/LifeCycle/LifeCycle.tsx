@@ -14,7 +14,7 @@ const LifeCycle = () => {
 
     if (count > 0) {
         return <View>
-            <Text>渲染 count</Text>
+            <Text >渲染 count</Text>
         </View>
     }
 

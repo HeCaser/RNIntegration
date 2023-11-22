@@ -1064,6 +1064,32 @@
   resolved "https://repo.huaweicloud.com/repository/npm/@types/node/-/node-18.15.0.tgz#286a65e3fdffd691e170541e6ecb0410b16a38be"
   integrity sha512-z6nr0TTEOBGkzLGmbypWOGnpSpSIBorEhC4L+4HeQ2iezKCi4f77kyslRwvHeNitymGQ+oFyIWGP96l/DPSV9w==
 
+"@types/prop-types@*":
+  version "15.7.10"
+  resolved "https://repo.huaweicloud.com/repository/npm/@types/prop-types/-/prop-types-15.7.10.tgz#892afc9332c4d62a5ea7e897fe48ed2085bbb08a"
+  integrity sha512-mxSnDQxPqsZxmeShFH+uwQ4kO4gcJcGahjjMFeLbKE95IAZiiZyiEepGZjtXJ7hN/yfu0bu9xN2ajcU0JcxX6A==
+
+"@types/react-native@^0.67.2":
+  version "0.67.25"
+  resolved "https://repo.huaweicloud.com/repository/npm/@types/react-native/-/react-native-0.67.25.tgz#d5fab89193cfd398b46b0d38cb67a10bd3c411c3"
+  integrity sha512-m3g3qshPXuadO+GyqYLwbA466zapYztSq0TMqEstDFEIADIdtmfFgSSMB7m2h8tMedS4fNwBKTqMb/4vC77AWw==
+  dependencies:
+    "@types/react" "^17"
+
+"@types/react@^17":
+  version "17.0.71"
+  resolved "https://repo.huaweicloud.com/repository/npm/@types/react/-/react-17.0.71.tgz#3673d446ad482b1564e44bf853b3ab5bcbc942c4"
+  integrity sha512-lfqOu9mp16nmaGRrS8deS2Taqhd5Ih0o92Te5Ws6I1py4ytHBcXLqh0YIqVsViqwVI5f+haiFM6hju814BzcmA==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/scheduler@*":
+  version "0.16.7"
+  resolved "https://repo.huaweicloud.com/repository/npm/@types/scheduler/-/scheduler-0.16.7.tgz#d62f1bd54724c84089f51f9218393930ba4abcf4"
+  integrity sha512-8g25Nl3AuB1KulTlSUsUhUo/oBgBU6XIXQ+XURpeioEbEJvkO7qI4vDfREv3vJYHHzqXjcAHvoJy4pTtSQNZtA==
+
 "@types/stack-utils@^2.0.0":
   version "2.0.1"
   resolved "https://repo.huaweicloud.com/repository/npm/@types/stack-utils/-/stack-utils-2.0.1.tgz#20f18294f797f2209b5f65c8e3b5c8e8261d127c"
@@ -1708,6 +1734,11 @@ css-what@^6.1.0:
   version "6.1.0"
   resolved "https://repo.huaweicloud.com/repository/npm/css-what/-/css-what-6.1.0.tgz#fb5effcf76f1ddea2c81bdfaa4de44e79bac70f4"
   integrity sha512-HTUrgRJ7r4dsZKU6GjmpfRK1O76h97Z8MfS1G0FozR+oF2kG6Vfe8JE6zwrkbxigziPHinCJ+gCPjA9EaBDtRw==
+
+csstype@^3.0.2:
+  version "3.1.2"
+  resolved "https://repo.huaweicloud.com/repository/npm/csstype/-/csstype-3.1.2.tgz#1d4bf9d572f11c14031f0436e1c10bc1f571f50b"
+  integrity sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==
 
 dayjs@^1.8.15:
   version "1.11.7"
