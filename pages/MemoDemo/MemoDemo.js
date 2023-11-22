@@ -12,6 +12,10 @@ const MemoDemo = () => {
     const catFunction = () => {
         console.log(`hepan count = ${count}`)
     }
+    
+    const catFunction2 = useCallback(() => {
+        console.log(`hepan count = ${count}`)
+    },[])
 
     return <View>
         <Text>count = {count}</Text>
