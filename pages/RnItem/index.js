@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AppRegistry, Button, StyleSheet, Text, View, Image } from 'react-native';
-import TsLearn from '../TSLearn/TsLearn';
 
 const logmsg = 'hepan lifecycle  '
 
@@ -31,9 +30,9 @@ function RnItem({native_data}) {
             <Button onPress={() => {
                 alert(0)
                 setIsAddWeChat(!isAddWeChat)
-            }} title='我是 RnItem'></Button>
+            }} title='我是 RnItem1'></Button>
             <Image source={require('./fund_hot.png')} style={{ width: '100%', height: 120 }} />
-            <TsLearn></TsLearn>
+            <Text style={{backgroundColor:"#000",opacity:0.5, height:200,marginTop:-200}} > </Text>
         </View>
     )
 }

@@ -1,19 +1,25 @@
-import React, { useReducer } from "react";
-import Cat, { MemoCat } from "./Cat";
-import { View,Text, Button } from "react-native";
+import React, { useReducer, useState, useCallback } from "react";
+import PureCat from "./PureCat";
+import { View, Text, Button } from "react-native";
+import FunctionCat from "./FunctionCat";
 
 
-const MemoDemo =()=>{
+const MemoDemo = () => {
 
-    const [cats,addCat] = useReducer((pre,newCat)=>[...pre,newCat],[{name:"猫1"},{name:"猫2"},{name:"猫3"}])
-    
+    const [cats, addCat] = useReducer((pre, newCat) => [...pre, newCat], [{ name: "猫1" }, { name: "猫2" }, { name: "猫3" }])
+    const [count, setCount] = useState(0)
+
+    const catFunction = () => {
+        console.log(`hepan count = ${count}`)
+    }
+
     return <View>
-        <Text>333</Text>
-        {cats.map((cat,index)=>(<Cat key={index} cat ={cat.name} ></Cat>))}
-        <Button onPress={()=>{
-            let name = `猫${cats.length+1}`
-            addCat({name})
-        }} title="添加猫咪"></Button>
+        <Text>count = {count}</Text>
+        {cats.map((cat, index) => (<PureCat key={index} name={cat.name} ></PureCat>))}
+        {cats.map((cat, index) => (<FunctionCat key={index} name={cat.name} meow={catFunction}></FunctionCat>))}
+        <Button onPress={() => {
+            setCount(pre => pre + 1)
+        }} title="父组件刷新"></Button>
     </View>
 }
 
