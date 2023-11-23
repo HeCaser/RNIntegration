@@ -16,16 +16,16 @@ import com.facebook.react.PackageList
  */
 object ReactInstanceUtil {
 
-      @SuppressLint("StaticFieldLeak")
-      private lateinit var reactInstanceManager:ReactInstanceManager
-    fun getBasicManager(act:Activity):ReactInstanceManager{
-        if (!this::reactInstanceManager.isInitialized){
-            val start = System.currentTimeMillis()
+    @SuppressLint("StaticFieldLeak")
+    private lateinit var reactInstanceManager: ReactInstanceManager
+    fun getBasicManager(act: Activity): ReactInstanceManager {
+        if (!this::reactInstanceManager.isInitialized) {
             val packages: List<ReactPackage> = PackageList(act.application).packages
             // Packages that cannot be autolinked yet can be added manually here, for example:
             // packages.add(MyReactNativePackage())
             // Remember to include them in `settings.gradle` and `app/build.gradle` too.
-            reactInstanceManager = ReactInstanceManager.builder()
+
+            val builder = ReactInstanceManager.builder()
                 .setApplication(act.application)
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
@@ -34,9 +34,9 @@ object ReactInstanceUtil {
                 .setUseDeveloperSupport(ConstUtil.IS_DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .setJavaScriptExecutorFactory(HermesExecutorFactory())
-                .build()
 
-            println("hepan time = ${System.currentTimeMillis()-start}")
+            // 主要耗时处
+            reactInstanceManager = builder.build()
         }
         println("hepan 返回管理器 = ${reactInstanceManager.hashCode()}")
         return reactInstanceManager
