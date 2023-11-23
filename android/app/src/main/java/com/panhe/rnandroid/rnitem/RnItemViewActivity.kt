@@ -1,10 +1,10 @@
-package com.panhe.rnandroid.activity
+package com.panhe.rnandroid.rnitem
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
-import com.facebook.react.ReactRootView
 import com.panhe.rnandroid.R
 import com.panhe.rnandroid.util.ReactInstanceUtil
 
@@ -19,15 +19,20 @@ class RnItemViewActivity : AppCompatActivity() {
         val addRn = findViewById<View>(R.id.addRn)
         frameLayout = findViewById(R.id.frameLayout)
         addRn.setOnClickListener { addRnView() }
+
+        // 打开另一个 RnItemViewActivity 页面.
+        val tvClick = findViewById<View>(R.id.tvClick)
+        tvClick.setOnClickListener { startActivity(Intent(this, RnItemViewActivity::class.java)) }
     }
 
     private fun addRnView() {
-        val rn = ReactRootView(this)
         val manager = ReactInstanceUtil.getBasicManager(this)
-        rn.startReactApplication(manager, "RnItem")
+        val rn = ReactRootViewWrap(this, manager)
+        rn.startReactApplication("RnItem",null)
 
-        manager.onHostResume(this)
         frameLayout.removeAllViews()
-        frameLayout.addView(rn)
+        frameLayout.addView(rn.getReactRootView())
     }
+
+
 }

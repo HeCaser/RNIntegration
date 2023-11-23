@@ -20,6 +20,7 @@ object ReactInstanceUtil {
       private lateinit var reactInstanceManager:ReactInstanceManager
     fun getBasicManager(act:Activity):ReactInstanceManager{
         if (!this::reactInstanceManager.isInitialized){
+            val start = System.currentTimeMillis()
             val packages: List<ReactPackage> = PackageList(act.application).packages
             // Packages that cannot be autolinked yet can be added manually here, for example:
             // packages.add(MyReactNativePackage())
@@ -34,7 +35,10 @@ object ReactInstanceUtil {
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .setJavaScriptExecutorFactory(HermesExecutorFactory())
                 .build()
+
+            println("hepan time = ${System.currentTimeMillis()-start}")
         }
+        println("hepan 返回管理器 = ${reactInstanceManager.hashCode()}")
         return reactInstanceManager
     }
 }

@@ -18,7 +18,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activity.RnItemViewActivity"
+            android:name=".rnitem.RnItemViewActivity"
             android:exported="false" />
         <activity
             android:name=".activity.RnFragmentActivity"

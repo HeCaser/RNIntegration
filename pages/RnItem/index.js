@@ -32,7 +32,6 @@ function RnItem({native_data}) {
                 setIsAddWeChat(!isAddWeChat)
             }} title='我是 RnItem1'></Button>
             <Image source={require('./fund_hot.png')} style={{ width: '100%', height: 120 }} />
-            <Text style={{backgroundColor:"#000",opacity:0.5, height:200,marginTop:-200}} > </Text>
         </View>
     )
 }

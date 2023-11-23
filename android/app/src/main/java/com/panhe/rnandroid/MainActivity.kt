@@ -7,7 +7,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.panhe.rnandroid.activity.RnCustomFragmentActivity
 import com.panhe.rnandroid.activity.RnFragmentActivity
-import com.panhe.rnandroid.activity.RnItemViewActivity
+import com.panhe.rnandroid.rnitem.RnItemViewActivity
 import com.panhe.rnandroid.rv.RnItemActivity
 import com.panhe.rnandroid.util.SpUtil
 
