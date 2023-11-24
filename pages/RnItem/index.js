@@ -19,8 +19,11 @@ function RnItem({native_data}) {
     a.current += 1
 
 
+    type Point ={x:number}
 
-
+    function test(){
+        
+    }
     return (
         <View>
             <Text style={{ color: '#007AFF' }}>RnItem </Text>
@@ -28,7 +31,7 @@ function RnItem({native_data}) {
             <Text>Native 传递的参数 param = {`${JSON.stringify(JSON.stringify(native_data))}`}</Text>
             <Text>a = {`${a.current}`}</Text>
             <Button onPress={() => {
-                alert(0)
+                test()
                 setIsAddWeChat(!isAddWeChat)
             }} title='我是 RnItem1'></Button>
             <Image source={require('./fund_hot.png')} style={{ width: '100%', height: 120 }} />

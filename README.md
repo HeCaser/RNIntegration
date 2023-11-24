@@ -378,7 +378,10 @@ https://github.com/HeCaser/RNIntegration/commit/ed4ff41f191b787ffbc665b101f4c3cc
 
 # 2023-11-17
 
-Android 无法展示 Alert 等弹框组件, 提示 Tried to show an alert while not attached to an Anctivity.
+# Android 无法展示 Alert 等弹框组件
+
+提示 Tried to show an alert while not attached to an Anctivity.
+
 
 原因: RN 管理器生命周期错误
 
