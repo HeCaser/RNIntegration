@@ -13,6 +13,7 @@ import Wrapper from './pages/RnItem/Wrap.js';
 import MemoDemo from './pages/MemoDemo/MemoDemo.js';
 import LifeCycle from './pages/RnBasic/LifeCycle/LifeCycle.tsx';
 import TestDemo from './pages/TestDemo/TestDemo.tsx';
+import CustomHookDemo from './pages/RnBasic/CustomHook/CustomHookDemo.tsx';
 
 AppRegistry.registerComponent( 'MyReactNativeApp', () => HomePage, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
@@ -26,3 +27,5 @@ AppRegistry.registerComponent( 'SnowBoxDemo', () => SnowBoxDemo, );
 AppRegistry.registerComponent( 'MemoDemo', () => MemoDemo, );
 AppRegistry.registerComponent( 'LifeCycle', () => LifeCycle, );
 AppRegistry.registerComponent( 'TestDemo', () => TestDemo, );
+AppRegistry.registerComponent( 'CustomHookDemo', () => CustomHookDemo, );
+
