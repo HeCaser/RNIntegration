@@ -402,3 +402,7 @@ https://github.com/HeCaser/RNIntegration/commit/ed4ff41f191b787ffbc665b101f4c3cc
 ReactInstanceManager#onHostResume(android.app.Activity)
 ```
 
+# 自定义 Hook useIteration
+
+自定义 Hook 更像对某个通用功能的抽取与封装. 本次实现了一个简单的自定义 Hook , 接收数组和初始 index, 返回选中条目以及获取上一个元素与下一个元素的方法. 
+
