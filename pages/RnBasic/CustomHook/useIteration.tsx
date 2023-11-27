@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 /**
  * 
@@ -29,7 +29,11 @@ const useIteration = (items: any[], initIndex: number) => {
         }
     }, [index])
 
-    return [items[index], next, pre]
+    const item = useMemo(()=>{
+       return items[index] || items[0]
+    },[index])
+
+    return [item, next, pre]
 
 }
 
