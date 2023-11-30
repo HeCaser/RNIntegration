@@ -406,3 +406,19 @@ ReactInstanceManager#onHostResume(android.app.Activity)
 
 自定义 Hook 更像对某个通用功能的抽取与封装. 本次实现了一个简单的自定义 Hook , 接收数组和初始 index, 返回选中条目以及获取上一个元素与下一个元素的方法. 
 
+
+# Android Native Modules
+
+[官网链接](https://reactnative.dev/docs/native-modules-android)
+
+android 提交: 381d3122050ca42e85b7dc89f12fcabb62bf8443
+
+js 提交: 81d2e529145231f740878a1e2d25f25e6b8c15bf
+
+自定义 Natvie Module 步骤
+
+1. Android 创建 NativeModule
+2. NativeModule 通过 Package 添加
+3. 添加 Package 到 RN 管理器
+4. JS 侧调用
+
