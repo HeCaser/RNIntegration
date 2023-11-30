@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
+import com.facebook.react.ReactInstanceManager
+import com.facebook.react.modules.dialog.DialogModule
 import com.panhe.rnandroid.R
 import com.panhe.rnandroid.util.ReactInstanceUtil
 
@@ -13,6 +15,8 @@ import com.panhe.rnandroid.util.ReactInstanceUtil
  */
 class RnItemViewActivity : AppCompatActivity() {
     lateinit var frameLayout: FrameLayout
+    private var rnManager: ReactInstanceManager? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rn_item_view)
@@ -22,16 +26,21 @@ class RnItemViewActivity : AppCompatActivity() {
 
         // 打开另一个 RnItemViewActivity 页面.
         val tvClick = findViewById<View>(R.id.tvClick)
-        tvClick.setOnClickListener { startActivity(Intent(this, RnItemViewActivity::class.java)) }
+        tvClick.setOnClickListener { buttonClick() }
     }
 
     private fun addRnView() {
-        val manager = ReactInstanceUtil.getBasicManager(this)
-        val rn = ReactRootViewWrap(this, manager)
-        rn.startReactApplication("RnItem",null)
+        rnManager = ReactInstanceUtil.getBasicManager(this)
+        val rn = ReactRootViewWrap(this, rnManager!!)
+        rn.startReactApplication("RnItem", null)
 
         frameLayout.removeAllViews()
         frameLayout.addView(rn.getReactRootView())
+    }
+
+
+    private fun buttonClick() {
+        startActivity(Intent(this, RnItemViewActivity::class.java))
     }
 
 

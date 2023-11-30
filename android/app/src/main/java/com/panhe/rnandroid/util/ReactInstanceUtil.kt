@@ -8,6 +8,7 @@ import com.facebook.react.ReactInstanceManager
 import com.facebook.react.ReactPackage
 import com.facebook.react.common.LifecycleState
 import com.facebook.react.PackageList
+import com.panhe.rnandroid.nativemodule.MyAppPackage
 
 /**
  * @author: hepan
@@ -20,10 +21,10 @@ object ReactInstanceUtil {
     private lateinit var reactInstanceManager: ReactInstanceManager
     fun getBasicManager(act: Activity): ReactInstanceManager {
         if (!this::reactInstanceManager.isInitialized) {
-            val packages: List<ReactPackage> = PackageList(act.application).packages
-            // Packages that cannot be autolinked yet can be added manually here, for example:
-            // packages.add(MyReactNativePackage())
-            // Remember to include them in `settings.gradle` and `app/build.gradle` too.
+            val packages: List<ReactPackage> = PackageList(act.application).packages.apply {
+                // 自定义 Native Module
+                add(MyAppPackage())
+            }
 
             val builder = ReactInstanceManager.builder()
                 .setApplication(act.application)
