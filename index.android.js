@@ -15,6 +15,7 @@ import LifeCycle from './pages/RnBasic/LifeCycle/LifeCycle.tsx';
 import TestDemo from './pages/TestDemo/TestDemo.tsx';
 import CustomHookDemo from './pages/RnBasic/CustomHook/CustomHookDemo.tsx';
 import ViewHideShow from './pages/RnBasic/ViewHideShow/ViewHideShow.tsx';
+import NativeModuleDemo from './pages/RnBasic/NativeModule/NativeModuleDemo.tsx';
 
 AppRegistry.registerComponent( 'MyReactNativeApp', () => HomePage, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
@@ -30,4 +31,5 @@ AppRegistry.registerComponent( 'LifeCycle', () => LifeCycle, );
 AppRegistry.registerComponent( 'TestDemo', () => TestDemo, );
 AppRegistry.registerComponent( 'CustomHookDemo', () => CustomHookDemo, );
 AppRegistry.registerComponent( 'ViewHideShow', () => ViewHideShow, );
+AppRegistry.registerComponent( 'NativeModuleDemo', () => NativeModuleDemo, );
 
