@@ -1,4 +1,3 @@
-import React from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 import RnException from './pages/simulate_error/RnException.js'
 import NativeCallBack from './pages/native_call/index.tsx'
@@ -9,7 +8,6 @@ import ChartDemo from './pages/SVG/index.js';
 import WindowSizeDemo from './pages/RnBasic/WindowSizeDemo/index.js';
 import RnBasicDemo from './pages/RnBasic/RnBasicDemo.js';
 import SnowBoxDemo from './pages/SnowBox/index.tsx';
-import Wrapper from './pages/RnItem/Wrap.js';
 import MemoDemo from './pages/MemoDemo/MemoDemo.js';
 import LifeCycle from './pages/RnBasic/LifeCycle/LifeCycle.tsx';
 import TestDemo from './pages/TestDemo/TestDemo.tsx';
