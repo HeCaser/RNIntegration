@@ -368,7 +368,7 @@ We do this by including a return function at the end of the useEffect Hook.
 
 **总结: 通过在 useEffect 末尾 return function 来释放资源**
 
-```
+```ts
  useEffect(() => {
         console.log('hepan 执行 useEffect only once')
         let timer = setTimeout(() => {

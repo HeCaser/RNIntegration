@@ -10,19 +10,84 @@ const RandomDisperse = () => {
 
 
     const totalCount = 100
-    const [items, setItems] = useState([1, 2, 3])
+    const [items, setItems] = useState<Point[]>([])
     type Point = { x: number, y: number }
 
+    useEffect(() => {
+        let a: Point[] = []
+        for (let i = 0; i < totalCount; i++) {
+            a.push({ x: 0, y: 0 })
+        }
+        setItems(a)
+    }, [])
 
-    const renderItem = (index: number) => {
-        console.log(`hepan3`)
 
-        return <View style={{ position: 'absolute', height: 2, width: 2, backgroundColor: "red", marginTop: 10 * index }}></View>
+    useEffect(() => {
+        let intervar = setInterval(() => {
+            randomDisPerse()
+        }, 300);
+
+        return () => clearInterval(intervar)
+    }, [items])
+
+    /**
+     * 随机点移动
+     */
+    const randomDisPerse = () => {
+       
+
+        let next = items.map((_item, _index) => {
+            return getNewPoint(Math.floor(Math.random() * 4),_item)
+        })
+
+        setItems(next)
+
     }
 
-    return <View style={styles.container}>
-        {items.map((item, index) => renderItem(index))}
+    /**
+     * 获取新坐标
+     * @param type   0-3 左上右下
+     * @param p 
+     */
+
+    const getNewPoint = (type: number, point: Point): Point => {
+        let p = { x: point.x, y: point.y }
+        switch (type) {
+            case 0:
+                p.x = p.x-1
+                break
+            case 1:
+                p.y = p.y-1
+                break
+            case 2:
+                p.x = p.x+1
+                break
+            case 3:
+                p.y = p.y+1
+                break
+            default:
+                break
+
+        }
+        return p
+    }
+
+    const renderItem = (point: Point) => {
+
+        let center = width / 2.0
+        let x = center + point.x
+        let y = center + point.y
+
+        return <View style={{ position: 'absolute', height: 2, width: 2, backgroundColor: "red", marginTop: y, marginStart: x }}></View>
+    }
+
+    return <View>
+        {/* <Text>{JSON.stringify(items)}</Text> */}
+        <View style={styles.container}>
+            {items.map((item, index) => renderItem(item))}
+        </View>
     </View>
+
 }
 
 const width = 300
