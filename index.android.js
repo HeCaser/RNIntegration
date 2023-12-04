@@ -15,6 +15,7 @@ import CustomHookDemo from './pages/RnBasic/CustomHook/CustomHookDemo.tsx';
 import ViewHideShow from './pages/RnBasic/ViewHideShow/ViewHideShow.tsx';
 import NativeModuleDemo from './pages/RnBasic/NativeModule/NativeModuleDemo.tsx';
 import ModalDemo from './pages/RnBasic/Modal/ModalDemo.tsx';
+import RandomDisperse from './pages/RnBasic/RandomDisperse/RandomDisperse.tsx';
 
 AppRegistry.registerComponent( 'MyReactNativeApp', () => HomePage, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
@@ -32,4 +33,5 @@ AppRegistry.registerComponent( 'CustomHookDemo', () => CustomHookDemo, );
 AppRegistry.registerComponent( 'ViewHideShow', () => ViewHideShow, );
 AppRegistry.registerComponent( 'NativeModuleDemo', () => NativeModuleDemo, );
 AppRegistry.registerComponent( 'ModalDemo', () => ModalDemo, );
+AppRegistry.registerComponent( 'RandomDisperse', () => RandomDisperse, );
 
