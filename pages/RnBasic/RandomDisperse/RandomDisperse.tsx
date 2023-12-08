@@ -9,7 +9,7 @@ import { StyleSheet, View, Text } from "react-native"
 const RandomDisperse = () => {
 
 
-    const totalCount = 100
+    const totalCount = 300
     const [items, setItems] = useState<Point[]>([])
     type Point = { x: number, y: number }
 
@@ -34,8 +34,7 @@ const RandomDisperse = () => {
      * 随机点移动
      */
     const randomDisPerse = () => {
-       
-
+    
         let next = items.map((_item, _index) => {
             return getNewPoint(Math.floor(Math.random() * 4),_item)
         })
@@ -72,19 +71,19 @@ const RandomDisperse = () => {
         return p
     }
 
-    const renderItem = (point: Point) => {
+    const renderItem = (point: Point,index:number) => {
 
         let center = width / 2.0
         let x = center + point.x
         let y = center + point.y
 
-        return <View style={{ position: 'absolute', height: 2, width: 2, backgroundColor: "red", marginTop: y, marginStart: x }}></View>
+        return <View style={{ position: 'absolute', height: 2, width: 2, backgroundColor: "red", marginTop: y, marginStart: x }} key={index}></View>
     }
 
     return <View>
         {/* <Text>{JSON.stringify(items)}</Text> */}
         <View style={styles.container}>
-            {items.map((item, index) => renderItem(item))}
+            {items.map((item, index) => renderItem(item,index))}
         </View>
     </View>
 
