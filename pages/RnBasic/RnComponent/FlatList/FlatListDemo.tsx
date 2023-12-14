@@ -49,7 +49,7 @@ export const FlatListDemo = () => {
     const renderItem = (user: User, add: () => void) => {
         return <View style={styles.item}>
 
-            <Image source={{ uri: user.avatar }} style={styles.avator} />
+            <Image source={{ uri: user.avatar.replace('https','http') }} style={styles.avator} />
 
             <View style={{ marginLeft: 12, flex:1}}>
                 <Text>姓名: {user.username}</Text>
