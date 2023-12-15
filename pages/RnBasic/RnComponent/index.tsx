@@ -3,11 +3,12 @@ import { StyleSheet, View, Text, ActionSheetIOS, ActivityIndicator } from "react
 import { ActivityIndictorDemo } from "./ActivityIndictor/ActivityIndictorDemo"
 import { FlatListDemo } from "./FlatList/FlatListDemo"
 import { KeyboardAvoid } from "./KeyboardAvoid"
+import { ModalDemo } from "./ModalDemo"
 
 const RnComponentDemo = () => {
 
     return <View style={{ flex: 1 }}>
-        <KeyboardAvoid></KeyboardAvoid>
+        <ModalDemo></ModalDemo>
     </View>
 }
 

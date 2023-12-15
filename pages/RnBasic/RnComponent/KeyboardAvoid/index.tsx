@@ -6,6 +6,8 @@ export const KeyboardAvoid = () => {
     return <KeyboardAvoidingView
         style={styles.container}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={10}
+        
     >
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.inner}>
