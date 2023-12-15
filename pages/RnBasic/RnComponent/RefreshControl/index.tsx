@@ -14,7 +14,7 @@ export const RefreshControlDemo = () => {
     return <SafeAreaView style={styles.container}>
         <ScrollView
             contentContainerStyle={styles.scrollView}
-            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}></RefreshControl>}
+            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={['red','blue','rgb(255,34,44)']}></RefreshControl>}
         >
             <Text>Pull down to see RefreshControl indicator</Text>
         </ScrollView>
