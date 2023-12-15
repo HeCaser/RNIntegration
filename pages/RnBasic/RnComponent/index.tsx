@@ -5,11 +5,12 @@ import { FlatListDemo } from "./FlatList/FlatListDemo"
 import { KeyboardAvoid } from "./KeyboardAvoid"
 import { ModalDemo } from "./ModalDemo"
 import { PressableDemo } from "./PressableDemo"
+import { RefreshControlDemo } from "./RefreshControl"
 
 const RnComponentDemo = () => {
 
     return <View style={{ flex: 1 }}>
-        <PressableDemo></PressableDemo>
+        <RefreshControlDemo></RefreshControlDemo>
     </View>
 }
 
