@@ -16,7 +16,7 @@ import ViewHideShow from './pages/RnBasic/ViewHideShow/ViewHideShow.tsx';
 import NativeModuleDemo from './pages/RnBasic/NativeModule/NativeModuleDemo.tsx';
 import ModalDemo from './pages/RnBasic/Modal/ModalDemo.tsx';
 import RandomDisperse from './pages/RnBasic/RandomDisperse/RandomDisperse.tsx';
-import RnComponentDemo from './pages/RnBasic/RnComponent/RnComponentDemo.tsx'
+import RnComponentDemo from './pages/RnBasic/RnComponent/index.tsx'
 
 AppRegistry.registerComponent( 'MyReactNativeApp', () => HomePage, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
