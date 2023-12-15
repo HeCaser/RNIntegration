@@ -4,11 +4,12 @@ import { ActivityIndictorDemo } from "./ActivityIndictor/ActivityIndictorDemo"
 import { FlatListDemo } from "./FlatList/FlatListDemo"
 import { KeyboardAvoid } from "./KeyboardAvoid"
 import { ModalDemo } from "./ModalDemo"
+import { PressableDemo } from "./PressableDemo"
 
 const RnComponentDemo = () => {
 
     return <View style={{ flex: 1 }}>
-        <ModalDemo></ModalDemo>
+        <PressableDemo></PressableDemo>
     </View>
 }
 
