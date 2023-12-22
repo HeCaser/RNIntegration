@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useEffect, useState } from "react"
 import { SafeAreaView, SectionList, StatusBar, Text, StyleSheet, View } from "react-native";
 
 const DATA = [
@@ -21,6 +21,15 @@ const DATA = [
 ];
 
 export const SectinListDemo = () => {
+    const [refreshing, setRefreshing] = useState(false)
+    const onRefresh = useCallback(() => {
+        setRefreshing(true)
+        setTimeout(() => {
+            setRefreshing(false)
+        }, 2000)
+    }, [])
+    
+
     return <SafeAreaView>
         <SectionList
             keyExtractor={(item, index) => item + index}
@@ -32,7 +41,9 @@ export const SectinListDemo = () => {
             sections={DATA}
             renderSectionHeader={({ section: { title } }) => {
                 return <Text style={styles.header}>{title}</Text>
-            }}>
+            }}
+            refreshing={refreshing}
+            onRefresh={onRefresh}>
 
         </SectionList>
     </SafeAreaView>
