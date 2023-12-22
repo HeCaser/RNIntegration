@@ -1,6 +1,6 @@
 import { fa } from "@faker-js/faker";
 import React, { useEffect, useState } from "react"
-import { View, StyleSheet, Modal, Text, Pressable } from "react-native";
+import { View, StyleSheet, Modal, Text, Pressable, TextInput } from "react-native";
 
 export const ModalDemo = () => {
 

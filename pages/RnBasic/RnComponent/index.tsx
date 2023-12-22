@@ -6,11 +6,14 @@ import { KeyboardAvoid } from "./KeyboardAvoid"
 import { ModalDemo } from "./ModalDemo"
 import { PressableDemo } from "./PressableDemo"
 import { RefreshControlDemo } from "./RefreshControl"
+import { SectinListDemo } from "./SectionListDemo"
 
 const RnComponentDemo = () => {
 
     return <View style={{ flex: 1 }}>
-        <RefreshControlDemo></RefreshControlDemo>
+        {/* <RefreshControlDemo></RefreshControlDemo> */}
+        {/* <ModalDemo></ModalDemo> */}
+        <SectinListDemo></SectinListDemo>
     </View>
 }
 
