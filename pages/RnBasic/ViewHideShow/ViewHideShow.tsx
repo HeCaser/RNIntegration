@@ -6,6 +6,8 @@ import Time from "./Time"
 /**
  * 目的, 实现点击按钮切换 View 时, 子 View 的状态可以保持. 
  * 参加基金详情页业绩球解: 当择时贡献 与 选股贡献相互切换时, 选股贡献中的排序状态可以保持
+ * 
+ * 结论: Time 与 Stock 组件用到了 memo 缓存, 实测无需 memo , 子组件仍然可以正确保留 industryDescending 状态值
  */
 const ViewHideShow = () => {
 
