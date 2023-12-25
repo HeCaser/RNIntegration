@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo, memo } from "react"
-import { Alert, Button, View, Text, TextInput } from "react-native"
+import { Alert, Button, View, Text, TextInput, StyleSheet } from "react-native"
 
 /**
  * 
@@ -8,12 +8,14 @@ import { Alert, Button, View, Text, TextInput } from "react-native"
  */
 const Stock = ({ show = false }) => {
 
-    const [industryDescending, setIndustryDescending] = useState<boolean>(true)
+    const [industryDescending, setIndustryDescending] = useState<boolean>(false)
 
     const content = useMemo(() => {
+        let style = industryDescending ? styles.btn_selected : styles.btn_normal
         return <View>
             <Text>选股贡献</Text>
             <Text>排序状态: {`${industryDescending}`}</Text>
+            <Text style={style}>{`收益率 ${style.sub_tag}`}</Text>
 
             <Button onPress={() => {
                 setIndustryDescending(!industryDescending)
@@ -25,5 +27,16 @@ const Stock = ({ show = false }) => {
     return show ? content : null
 
 }
+
+const styles = StyleSheet.create({
+    btn_selected: {
+        backgroundColor: "blue",
+        sub_tag: '选中了'
+    },
+    btn_normal: {
+        backgroundColor: "gray",
+        sub_tag: ''
+    }
+})
 
 export default Stock
