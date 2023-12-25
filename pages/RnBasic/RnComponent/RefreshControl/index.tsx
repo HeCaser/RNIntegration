@@ -1,4 +1,3 @@
-import { fa } from "@faker-js/faker"
 import React, { memo, useCallback, useEffect, useState } from "react"
 import { RefreshControl, SafeAreaView, ScrollView, StyleSheet, Text } from "react-native"
 
