@@ -1,11 +1,17 @@
 import React, { useEffect, useMemo, useRef, useState } from "react"
 import { Alert, Button, View, Text, TextInput } from "react-native"
-import ChideView from "./ChildeView"
+import Stock from "./Stock"
+import Time from "./Time"
 
+/**
+ * 目的, 实现点击按钮切换 View 时, 子 View 的状态可以保持. 
+ * 参加基金详情页业绩球解: 当择时贡献 与 选股贡献相互切换时, 选股贡献中的排序状态可以保持
+ */
 const ViewHideShow = () => {
 
     const [index, setIndex] = useState(-1)
-    
+
+    const show = (child_index: number) => child_index === index
 
     return <View>
         <Text>点击按钮控制 View 的展示和隐藏, View 切换后保持各自状态</Text>
@@ -15,12 +21,8 @@ const ViewHideShow = () => {
             <Button onPress={() => { setIndex(2) }} title="View3"></Button>
 
         </View>
-
-        <ChideView show={index === 0} index={index}></ChideView>
-        <ChideView show={index === 1} index={index}></ChideView>
-        <ChideView show={index === 2} index={index}></ChideView>
-
-    
+        <Time show={show(0)} ></Time>
+        <Stock show={show(1)} ></Stock>
 
     </View>
 }
