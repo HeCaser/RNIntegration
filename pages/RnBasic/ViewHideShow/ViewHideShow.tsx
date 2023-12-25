@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from "react"
-import { Alert, Button, View, Text, TextInput } from "react-native"
+import React, { useState } from "react"
+import { Button, View, Text } from "react-native"
 import Stock from "./Stock"
 import Time from "./Time"
 
