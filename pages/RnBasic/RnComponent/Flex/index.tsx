@@ -10,6 +10,9 @@ export const FlexDemo = () => {
             <Demo2></Demo2>
             <Demo3></Demo3>
             <Demo4></Demo4>
+            <Demo5></Demo5>
+            <Demo6></Demo6>
+            <Demo7></Demo7>
 
         </View>
     </ScrollView>)
@@ -66,7 +69,7 @@ const Demo3 = () => {
 const Demo4 = () => {
     return <View style={{ marginTop: 10 }}>
         <Text>4 Item 等分,columnGap = 10 </Text>
-        <View style={{ flex: 1, flexDirection: 'row', height: 30 ,columnGap:10}}>
+        <View style={{ flex: 1, flexDirection: 'row', height: 30, columnGap: 10 }}>
             <View style={{ flex: 1, backgroundColor: 'red' }} />
             <View style={{ flex: 1, backgroundColor: 'darkorange' }} />
             <View style={{ flex: 1, backgroundColor: 'green' }} />
@@ -74,6 +77,45 @@ const Demo4 = () => {
     </View>
 }
 
+const Demo5 = () => {
+    return <View style={{ marginTop: 10 }}>
+        <Text>5 设置容器宽度 80% </Text>
+        <View style={{ width: '80%', flexDirection: 'row', height: 30 }}>
+            <View style={{ flex: 1, backgroundColor: 'red' }} />
+            <View style={{ flex: 1, backgroundColor: 'darkorange' }} />
+            <View style={{ flex: 1, backgroundColor: 'green' }} />
+        </View>
+    </View>
+}
+
+const Demo6 = () => {
+    return <View style={{ marginTop: 10 }}>
+        <Text>6.1 默认相对布局, 距离容器 left 距离依次为 15 25 35 </Text>
+        <View style={{ flex: 1 }}>
+            <View style={[styles.box, { left: 15, backgroundColor: 'red' }]} />
+            <View style={[styles.box, { left: 25, backgroundColor: 'darkorange' }]} />
+            <View style={[styles.box, { left: 35, backgroundColor: 'green' }]} />
+        </View>
+        <Text>6.2 默认相对布局, 距离容器 top 距离依次为 15 25 35 ,注意:会自动留出其他 Item 所占高度</Text>
+        <View style={{ flex: 1, minHeight: 200 }}>
+            <View style={[styles.box, { top: 15, backgroundColor: 'red' }]} />
+            <View style={[styles.box, { top: 25, backgroundColor: 'darkorange' }]} />
+            <View style={[styles.box, { top: 35, backgroundColor: 'green' }]} />
+        </View>
+    </View>
+}
+
+const Demo7 = () => {
+    return <View style={{ marginTop: 10 }}>
+        <Text>7.1 absolute, 距离容器 top 距离依次为 15 25 35, 距离 left 依次为 15 25 35 与相对布局一样 </Text>
+        <View style={{ flex: 1, height: 300 }}>
+            <View style={[styles.box, { top: 15, left: 15, backgroundColor: 'red', position: 'absolute' }]} />
+            <View style={[styles.box, { top: 25, left: 25, backgroundColor: 'darkorange', position: 'absolute' }]} />
+            <View style={[styles.box, { top: 35, left: 35, backgroundColor: 'green', position: 'absolute' }]} />
+        </View>
+
+    </View>
+}
 
 
 const styles = StyleSheet.create({
