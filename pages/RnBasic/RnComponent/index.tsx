@@ -9,6 +9,7 @@ import { RefreshControlDemo } from "./RefreshControl"
 import { SectinListDemo } from "./SectionListDemo"
 import { FlexDemo } from "./Flex"
 import { StatusBarDemo } from "./StatusBar"
+import { SwitchDemo } from "./Switch"
 
 const RnComponentDemo = () => {
 
@@ -16,7 +17,7 @@ const RnComponentDemo = () => {
         {/* <RefreshControlDemo></RefreshControlDemo> */}
         {/* <ModalDemo></ModalDemo> */}
         {/* <SectinListDemo></SectinListDemo> */}
-        <StatusBarDemo></StatusBarDemo>
+        <SwitchDemo></SwitchDemo>
     </View>
 }
 
