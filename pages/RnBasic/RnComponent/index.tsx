@@ -10,6 +10,7 @@ import { SectinListDemo } from "./SectionListDemo"
 import { FlexDemo } from "./Flex"
 import { StatusBarDemo } from "./StatusBar"
 import { SwitchDemo } from "./Switch"
+import { TextDemo } from "../Text"
 
 const RnComponentDemo = () => {
 
@@ -17,7 +18,8 @@ const RnComponentDemo = () => {
         {/* <RefreshControlDemo></RefreshControlDemo> */}
         {/* <ModalDemo></ModalDemo> */}
         {/* <SectinListDemo></SectinListDemo> */}
-        <SwitchDemo></SwitchDemo>
+        {/* <SwitchDemo></SwitchDemo> */}
+        <TextDemo></TextDemo>
     </View>
 }
 
