@@ -418,7 +418,6 @@ js 提交: 81d2e529145231f740878a1e2d25f25e6b8c15bf
 自定义 Natvie Module 步骤
 
 1. Android 创建 NativeModule
-2. NativeModule 通过 Package 添加
-3. 添加 Package 到 RN 管理器
-4. JS 侧调用
+2. NativeModule 添加到 Package , 然后添加 Package 到 RN 管理器
+3. JS 导入对应 Module , 然后就可以从 JS 侧调用 Native 侧方法了
 
