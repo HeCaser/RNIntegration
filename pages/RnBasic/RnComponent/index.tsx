@@ -11,6 +11,7 @@ import { FlexDemo } from "./Flex"
 import { StatusBarDemo } from "./StatusBar"
 import { SwitchDemo } from "./Switch"
 import { TextDemo } from "./Text"
+import { TextInputDemo } from "./TextInput"
 
 const RnComponentDemo = () => {
 
@@ -19,7 +20,8 @@ const RnComponentDemo = () => {
         {/* <ModalDemo></ModalDemo> */}
         {/* <SectinListDemo></SectinListDemo> */}
         {/* <SwitchDemo></SwitchDemo> */}
-        <TextDemo></TextDemo>
+        {/* <TextDemo></TextDemo> */}
+        <TextInputDemo></TextInputDemo>
     </View>
 }
 
