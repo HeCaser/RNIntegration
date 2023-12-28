@@ -10,7 +10,7 @@ import { SectinListDemo } from "./SectionListDemo"
 import { FlexDemo } from "./Flex"
 import { StatusBarDemo } from "./StatusBar"
 import { SwitchDemo } from "./Switch"
-import { TextDemo } from "../Text"
+import { TextDemo } from "./Text"
 
 const RnComponentDemo = () => {
 
