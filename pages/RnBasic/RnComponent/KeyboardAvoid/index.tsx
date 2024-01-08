@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { View, Text, KeyboardAvoidingView, Platform, StyleSheet, TouchableWithoutFeedback, Keyboard, TextInput, Button } from "react-native"
 
+/**
+ * https://reactnative.dev/docs/keyboardavoidingview
+ */
 export const KeyboardAvoid = () => {
 
     return <KeyboardAvoidingView

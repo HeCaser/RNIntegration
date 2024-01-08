@@ -12,7 +12,10 @@ import { StatusBarDemo } from "./StatusBar"
 import { SwitchDemo } from "./Switch"
 import { TextDemo } from "./Text"
 import { TextInputDemo } from "./TextInput"
-
+/**
+ * https://reactnative.dev/docs/components-and-apis
+ * 
+ */
 const RnComponentDemo = () => {
 
     return <View style={{ flex: 1 }}>
