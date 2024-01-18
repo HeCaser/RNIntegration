@@ -12,6 +12,7 @@ import { StatusBarDemo } from "./StatusBar"
 import { SwitchDemo } from "./Switch"
 import { TextDemo } from "./Text"
 import { TextInputDemo } from "./TextInput"
+import { WheelPicker } from "./WheelPicker"
 /**
  * https://reactnative.dev/docs/components-and-apis
  * 
@@ -24,7 +25,7 @@ const RnComponentDemo = () => {
         {/* <SectinListDemo></SectinListDemo> */}
         {/* <SwitchDemo></SwitchDemo> */}
         {/* <TextDemo></TextDemo> */}
-        <TextInputDemo></TextInputDemo>
+        <WheelPicker></WheelPicker>
     </View>
 }
 
