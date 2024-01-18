@@ -14,22 +14,36 @@ export const WheelPicker = () => {
 
     const items = ["标题1", "标题2", "标题3", "标题4"]
 
+    const [selectIndex, setSelectIndex] = useState(0)
+
     const itemHeight = 40
-    const ItemView = (item: string) => {
-        return <Text style={{ height: itemHeight, width: '100%' }}>{`${item}`}</Text>
+    const ItemView = (item: string, index: number) => {
+        const color = index === selectIndex ? 'red' : 'green'
+        return <Text style={{ height: itemHeight, width: '100%', color: color }}>{`${item}`}</Text>
+    }
+
+    const onEnd = (event) => {
+
+        const { contentOffset } = event.nativeEvent;
+        const index = Math.round(contentOffset.y / itemHeight); // Assuming each item has a height of 50
+        console.log('hepan index = ' + index)
+        setSelectIndex(index);
     }
     return <View style={{ height: itemHeight * 3 }}>
-        <Text>滚轮选择器1</Text>
+        <Text>滚轮选择器</Text>
         <View style={{}}>
             <View style={{ position: 'absolute', backgroundColor: 'gray', height: itemHeight, width: 1000, marginTop: itemHeight }}>
             </View>
 
-            <ScrollView>
-                {ItemView('')}
-                {items.map(item => {
-                    return ItemView(item)
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                onScroll={onEnd}
+                onScrollEndDrag={onEnd}>
+                {ItemView('', 0)}
+                {items.map((item, index) => {
+                    return ItemView(item, index)
                 })}
-                {ItemView('')}
+                {ItemView('', 0)}
             </ScrollView>
 
 
