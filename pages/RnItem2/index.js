@@ -25,8 +25,6 @@ function RnItem2(props) {
             <Text>从移动端获取的数据 {props.native_data_string}</Text>
             <Text>从移动端获取的数据 rootTag {props.rootTag}</Text>
 
-            {props.native_data_string === '1' && <Text>从移动端获取的数据是1 {props.native_data}</Text>}
-            {props.native_data_string !== "1" && <Text>从移动端获取的数据不是1 {props.native_data}</Text>}
             <Text>{isHavePwd}</Text>
         </View>
     )
