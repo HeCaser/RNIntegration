@@ -19,7 +19,7 @@ export const WheelPicker = () => {
     const itemHeight = 40
     const ItemView = (item: string, index: number) => {
         const color = index === selectIndex ? 'red' : 'green'
-        return <Text style={{ height: itemHeight, width: '100%', color: color }}>{`${item}`}</Text>
+        return <Text style={{ height: itemHeight, width: '100%', color: color, textAlign: 'center', textAlignVertical: 'center' }}>{`${item}`}</Text>
     }
 
     const onEnd = (event) => {
@@ -36,6 +36,7 @@ export const WheelPicker = () => {
             </View>
 
             <ScrollView
+                snapToInterval={itemHeight}
                 showsVerticalScrollIndicator={false}
                 onScroll={onEnd}
                 onScrollEndDrag={onEnd}>
