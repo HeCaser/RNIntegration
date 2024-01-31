@@ -9,13 +9,9 @@ function RnItem2(props) {
 
     useEffect(() => {
         console.log('i am render')
-        hh()
     }, [])
 
-    function hh() {
-        let d =  Date()
-        alert(typeof d)
-    }
+
     const [isAddWeChat, setIsAddWeChat] = useState(true)
 
     return (
