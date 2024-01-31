@@ -22,12 +22,18 @@ export const WheelPicker = () => {
         return <Text style={{ height: itemHeight, width: '100%', color: color, textAlign: 'center', textAlignVertical: 'center' }}>{`${item}`}</Text>
     }
 
-    const onEnd = (event) => {
-
+    const onScroll = (event) => {
         const { contentOffset } = event.nativeEvent;
         const index = Math.round(contentOffset.y / itemHeight); // Assuming each item has a height of 50
-        console.log('hepan index = ' + index)
         setSelectIndex(index);
+    }
+    const onEnd = (event) => {
+        const { contentOffset } = event.nativeEvent;
+        const index = Math.round(contentOffset.y / itemHeight); // Assuming each item has a height of 50
+        setSelectIndex(index);
+
+        console.log(`hepan 选中了 ${index}`)
+  
     }
     return <View style={{ height: itemHeight * 3 }}>
         <Text>滚轮选择器</Text>
@@ -38,7 +44,7 @@ export const WheelPicker = () => {
             <ScrollView
                 snapToInterval={itemHeight}
                 showsVerticalScrollIndicator={false}
-                onScroll={onEnd}
+                onScroll={onScroll}
                 onScrollEndDrag={onEnd}>
                 {ItemView('', 0)}
                 {items.map((item, index) => {
