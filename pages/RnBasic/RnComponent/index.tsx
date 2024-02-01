@@ -13,6 +13,7 @@ import { SwitchDemo } from "./Switch"
 import { TextDemo } from "./Text"
 import { TextInputDemo } from "./TextInput"
 import { WheelPicker } from "./WheelPicker"
+import RandomDisperse from "../RandomDisperse/RandomDisperse"
 /**
  * https://reactnative.dev/docs/components-and-apis
  * 
@@ -25,7 +26,7 @@ const RnComponentDemo = () => {
         {/* <SectinListDemo></SectinListDemo> */}
         {/* <SwitchDemo></SwitchDemo> */}
         {/* <TextDemo></TextDemo> */}
-        <WheelPicker></WheelPicker>
+        <RandomDisperse></RandomDisperse>
     </View>
 }
 
