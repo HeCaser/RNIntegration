@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { AppRegistry, Button, StyleSheet, Text, View } from 'react-native';
-import TranslateAnimation from '../RnBasic/Animation/TranslateAnimation';
+import BouncingBallAnimation from '../RnBasic/Animation/BouncingBallAnimation';
 
 export default HomePage = () => {
 
     return (
         <View>
             <Text>我是首页</Text>
-            <TranslateAnimation></TranslateAnimation>
+            <BouncingBallAnimation></BouncingBallAnimation>
         </View>
     )
 }
