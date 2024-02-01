@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react"
 import { Animated, View, StyleSheet } from "react-native";
 
+/**
+ * 
+ * @returns 上下来回移动的动画
+ */
 const BouncingBallAnimation = () => {
     const positionY = new Animated.Value(0);
 
