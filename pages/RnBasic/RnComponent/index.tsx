@@ -14,6 +14,7 @@ import { TextDemo } from "./Text"
 import { TextInputDemo } from "./TextInput"
 import { WheelPicker } from "./WheelPicker"
 import RandomDisperse from "../RandomDisperse/RandomDisperse"
+import FadeInAnimation from "../Animation/FadeInAnimation"
 /**
  * https://reactnative.dev/docs/components-and-apis
  * 
@@ -25,8 +26,8 @@ const RnComponentDemo = () => {
         {/* <ModalDemo></ModalDemo> */}
         {/* <SectinListDemo></SectinListDemo> */}
         {/* <SwitchDemo></SwitchDemo> */}
-        {/* <TextDemo></TextDemo> */}
-        <RandomDisperse></RandomDisperse>
+        <TextDemo></TextDemo>
+        {/* <RandomDisperse></RandomDisperse> */}
     </View>
 }
 

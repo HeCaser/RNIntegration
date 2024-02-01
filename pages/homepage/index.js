@@ -1,10 +1,14 @@
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { AppRegistry, Button, StyleSheet, Text, View } from 'react-native';
+import FadeInAnimation from '../RnBasic/Animation/FadeInAnimation';
 
 export default HomePage = () => {
-   
+
     return (
-        <Text>我是首页</Text>
+        <View>
+            <Text>我是首页</Text>
+            <FadeInAnimation></FadeInAnimation>
+        </View>
     )
 }
 
