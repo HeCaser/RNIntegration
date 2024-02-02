@@ -7,15 +7,17 @@ const DraggableComponent = () => {
     const panResponder = useRef(
         PanResponder.create({
             onStartShouldSetPanResponder: () => true,
+            // Animated.event : 解析参数,并调用 setValue 方法. 
             // onPanResponderMove: Animated.event([
-            //     null,
+            //     null, // 忽略第一个参数
             //     {
-            //         dx: pan.x,
+            //         dx: pan.x,   // 解析 gestureState dx, 并设置给 pan.x
             //         dy: pan.y
             //     }
             // ]),
 
             onPanResponderMove: (e, gestureState) => {
+                // 解析 gestureState 得到移动的坐标, 设置给 pan
                 const { dx, dy } = gestureState
                 pan.setValue({ x: dx, y: dy })
             },
