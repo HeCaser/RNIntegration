@@ -25,9 +25,7 @@ import Svg, {
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import CircleDemo from './component/circle';
-import DraggableProgressBar from '../CustomComponent/DraggableProgressBar';
 import LineDemo from './component/line';
-import DraggableView from '../CustomComponent/DraggableView';
 import BaseChart from '../CustomComponent/chart/BaseChart';
 import MultiLineDemo from '../CustomComponent/chart/MultiLine';
 import PathDemo from './component/path';
