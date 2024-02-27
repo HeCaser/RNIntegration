@@ -9,56 +9,76 @@ interface ToastProps {
 }
 
 const Toast: React.FC<ToastProps> = ({ message, isVisible, onHide }: ToastProps) => {
-    const [fadeAnim] = useState(new Animated.Value(0));
+    const Duration = 600
+    const startTop = 26
+    const endTop = 56
+
+    const fadeAnim = new Animated.Value(0)
+    const moveAnim = new Animated.Value(startTop)
+
+    const styles = StyleSheet.create({
+        container: {
+            position: 'absolute',
+            top: startTop,
+            left: 0,
+            right: 0,
+            alignItems: 'center',
+            backgroundColor: 'red',
+            padding: 10,
+        },
+        message: {
+            color: 'white',
+        },
+    });
 
     useEffect(() => {
         if (isVisible) {
-            Animated.timing(fadeAnim, {
-                toValue: 1,
-                easing: Easing.inOut(Easing.ease),
-                duration: 1500,
-                useNativeDriver: true,
-            }).start(() => {
-                hideToast()
-            });
+            Animated.parallel([
+                Animated.timing(fadeAnim, {
+                    toValue: 1,
+                    easing: Easing.linear,
+                    duration: Duration,
+                    useNativeDriver: false,
+                }),
+                Animated.timing(moveAnim, {
+                    toValue: endTop,
+                    easing: Easing.linear,
+                    duration: Duration,
+                    useNativeDriver: false,
+                })]).start(hideToast)
+
         }
     }, [isVisible]);
 
     const hideToast = () => {
-        Animated.timing(fadeAnim, {
-            toValue: 0,
-            duration: 1500,
-            easing: Easing.inOut(Easing.ease),
-            useNativeDriver: true,
-        }).start(() => {
-            onHide();
-        });
+
+        Animated.parallel([
+            Animated.timing(fadeAnim, {
+                toValue: 0,
+                duration: Duration,
+                easing: Easing.linear,
+                useNativeDriver: false,
+            }),
+            Animated.timing(moveAnim, {
+                toValue: startTop,
+                easing: Easing.linear,
+                duration: Duration,
+                useNativeDriver: false,
+            })
+        ]).start(onHide)
 
     };
 
     if (!isVisible) {
         return null
     }
+
     return (
-        <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
+        <Animated.View style={[styles.container, { opacity: fadeAnim, top: moveAnim }]}>
             <Text style={styles.message}>{message}</Text>
         </Animated.View>
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        position: 'absolute',
-        top: 56, // Adjust as needed
-        left: 0,
-        right: 0,
-        alignItems: 'center',
-        backgroundColor: 'red',
-        padding: 10,
-    },
-    message: {
-        color: 'white',
-    },
-});
 
 export default Toast;

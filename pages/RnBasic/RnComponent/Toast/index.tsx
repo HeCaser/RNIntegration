@@ -7,7 +7,6 @@ export const ToastDemo = () => {
     const [toastVisible, setToastVisible] = useState(false);
 
     const showToast = () => {
-        console.log(`hepan show`)
         setToastVisible(true);
     };
 
