@@ -9,13 +9,15 @@ export interface ToastProps {
 }
 
 const Toast: React.FC<ToastProps> = ({ message, isVisible, onHide }: ToastProps) => {
-    const Duration = 600
+    const Duration = 1600
     const startTop = 0
     const endTop = 56
 
     // 使用 useRef 可以保证新增其他 state 时, fadeAnim, moveAnim 对象不会重建
     const fadeAnim = useRef(new Animated.Value(0)).current
     const moveAnim = useRef(new Animated.Value(startTop)).current
+
+    const [animPercent, setAnimPercent] = useState('')
 
     const styles = StyleSheet.create({
         container: {
@@ -42,6 +44,12 @@ const Toast: React.FC<ToastProps> = ({ message, isVisible, onHide }: ToastProps)
 
         },
     });
+
+    useEffect(() => {
+        fadeAnim.addListener(({ value }) => {
+            setAnimPercent(`${value.toFixed(2)}`)
+        })
+    }, [])
 
     useEffect(() => {
         if (isVisible) {
@@ -87,7 +95,7 @@ const Toast: React.FC<ToastProps> = ({ message, isVisible, onHide }: ToastProps)
 
     return (
         <Animated.View style={[styles.container, { opacity: fadeAnim, top: moveAnim }]}>
-            <Text style={styles.message}>{message}</Text>
+            <Text style={styles.message}>{`${message} - ${animPercent}%`}</Text>
         </Animated.View>
     );
 };
