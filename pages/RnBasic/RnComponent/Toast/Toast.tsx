@@ -2,15 +2,15 @@ import { vi } from '@faker-js/faker';
 import React, { useState, useEffect } from 'react';
 import { Text, View, StyleSheet, Animated, Easing } from 'react-native';
 
-interface ToastProps {
+export interface ToastProps {
     message: string;
     isVisible: boolean;
-    onHide: () => void;
+    onHide?: () => void;
 }
 
 const Toast: React.FC<ToastProps> = ({ message, isVisible, onHide }: ToastProps) => {
     const Duration = 600
-    const startTop = 26
+    const startTop = 0
     const endTop = 56
 
     const fadeAnim = new Animated.Value(0)
@@ -23,18 +23,27 @@ const Toast: React.FC<ToastProps> = ({ message, isVisible, onHide }: ToastProps)
             left: 0,
             right: 0,
             alignItems: 'center',
-            backgroundColor: 'red',
+          
             padding: 10,
         },
         message: {
             color: 'white',
+            textAlign:'center',
+            verticalAlign:'middle',
+            minHeight:40,
+            backgroundColor: 'blue',
+            paddingLeft:10,
+            paddingRight:10,
+            marginLeft:16,
+            marginRight:16,
+            borderRadius:48,
+            fontSize:14
+
         },
     });
 
     useEffect(() => {
-        console.log(`hepan 修改为 ${isVisible}`)
         if (isVisible) {
-           
             Animated.parallel([
                 Animated.timing(fadeAnim, {
                     toValue: 1,

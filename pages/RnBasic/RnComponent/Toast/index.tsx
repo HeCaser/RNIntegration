@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react"
 import { Button, View, Text } from "react-native"
-import Toast from "./Toast"
+import Toast, { ToastProps } from "./Toast"
 export const ToastDemo = () => {
-    const [toastVisible, setToastVisible] = useState(false);
+    const [toastProps, setToastProps] = useState({} as ToastProps)
 
     const showToast = () => {
-        setToastVisible(true);
+        setToastProps({ ...toastProps, isVisible: true, message: `Time: ${new Date()}` })
     };
 
     const hideToast = () => {
-        setToastVisible(false);
+        setToastProps({ ...toastProps, isVisible: false })
     };
 
     return (<View>
-        <Button title="Show Toast" onPress={showToast}  />
-        <Toast message="This is a toast message from the top!" isVisible={toastVisible} onHide={hideToast} />
+        <Button title="Show Toast" onPress={showToast} />
+        <Toast message={toastProps.message} isVisible={toastProps.isVisible} onHide={hideToast} />
     </View>)
 }
