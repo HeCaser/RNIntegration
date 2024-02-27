@@ -32,7 +32,9 @@ const Toast: React.FC<ToastProps> = ({ message, isVisible, onHide }: ToastProps)
     });
 
     useEffect(() => {
+        console.log(`hepan 修改为 ${isVisible}`)
         if (isVisible) {
+           
             Animated.parallel([
                 Animated.timing(fadeAnim, {
                     toValue: 1,

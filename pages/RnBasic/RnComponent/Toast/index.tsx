@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { Button, View, Text } from "react-native"
-import ToastWrapper from "./ToastWrapper"
-import { ToastView } from "./ToastView"
 import Toast from "./Toast"
 export const ToastDemo = () => {
     const [toastVisible, setToastVisible] = useState(false);
