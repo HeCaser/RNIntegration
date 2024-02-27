@@ -1,5 +1,5 @@
 import { vi } from '@faker-js/faker';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Text, View, StyleSheet, Animated, Easing } from 'react-native';
 
 export interface ToastProps {
@@ -13,8 +13,9 @@ const Toast: React.FC<ToastProps> = ({ message, isVisible, onHide }: ToastProps)
     const startTop = 0
     const endTop = 56
 
-    const fadeAnim = new Animated.Value(0)
-    const moveAnim = new Animated.Value(startTop)
+    // 使用 useRef 可以保证新增其他 state 时, fadeAnim, moveAnim 对象不会重建
+    const fadeAnim = useRef(new Animated.Value(0)).current
+    const moveAnim = useRef(new Animated.Value(startTop)).current
 
     const styles = StyleSheet.create({
         container: {
@@ -23,21 +24,21 @@ const Toast: React.FC<ToastProps> = ({ message, isVisible, onHide }: ToastProps)
             left: 0,
             right: 0,
             alignItems: 'center',
-          
+
             padding: 10,
         },
         message: {
             color: 'white',
-            textAlign:'center',
-            verticalAlign:'middle',
-            minHeight:40,
+            textAlign: 'center',
+            verticalAlign: 'middle',
+            minHeight: 40,
             backgroundColor: 'blue',
-            paddingLeft:10,
-            paddingRight:10,
-            marginLeft:16,
-            marginRight:16,
-            borderRadius:48,
-            fontSize:14
+            paddingLeft: 10,
+            paddingRight: 10,
+            marginLeft: 16,
+            marginRight: 16,
+            borderRadius: 48,
+            fontSize: 14
 
         },
     });
