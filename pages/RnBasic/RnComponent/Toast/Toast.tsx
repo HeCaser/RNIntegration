@@ -26,7 +26,6 @@ const Toast: React.FC<ToastProps> = ({ message, isVisible, onHide }: ToastProps)
             left: 0,
             right: 0,
             alignItems: 'center',
-
             padding: 10,
         },
         message: {
@@ -41,7 +40,6 @@ const Toast: React.FC<ToastProps> = ({ message, isVisible, onHide }: ToastProps)
             marginRight: 16,
             borderRadius: 48,
             fontSize: 14
-
         },
     });
 
