@@ -31,7 +31,7 @@ const RnComponentDemo = () => {
         {/* <TextDemo></TextDemo> */}
         {/* <RandomDisperse></RandomDisperse> */}
         {/* <ToastDemo></ToastDemo> */}
-        <LinkedScrollViewDemo></LinkedScrollViewDemo>
+        {/* <LinkedScrollViewDemo></LinkedScrollViewDemo> */}
     </View>
 }
 

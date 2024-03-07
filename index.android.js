@@ -17,7 +17,7 @@ import NativeModuleDemo from './pages/RnBasic/NativeModule/NativeModuleDemo.tsx'
 import RandomDisperse from './pages/RnBasic/RandomDisperse/RandomDisperse.tsx';
 import RnComponentDemo from './pages/RnBasic/RnComponent/index.tsx'
 
-AppRegistry.registerComponent( 'MyReactNativeApp', () => HomePage, );
+AppRegistry.registerComponent( 'HomePage', () => HomePage, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
 AppRegistry.registerComponent( 'NativeCallBack', () => NativeCallBack, );
 AppRegistry.registerComponent( 'RnItem', () => RnItem, );
