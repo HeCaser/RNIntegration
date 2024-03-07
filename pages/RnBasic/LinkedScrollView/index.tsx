@@ -8,7 +8,7 @@ interface LinkedScrollViewsProviderProps extends GlobalScrollableProps {
 
 type LinkedScrollHandlerCache = Map<string, Map<number, LinkedScrollHandler>>
 
-const LinkedScrollViewsProvider = (props: LinkedScrollViewsProviderProps) => {
+const LinkedScrollViewsProvider = (props: LinkedScrollViewsProviderProps ) => {
   const { children, propsOfGroup, ...other } = props;
   const scrollViewRefs = useMemo<LinkedScrollHandlerCache>(() => new Map(), [])
   const currentRegisterIdOfGroup = useMemo<Map<string, number>>(() => new Map(), [])

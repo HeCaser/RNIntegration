@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { View, Text } from "react-native"
+import { View, Text, ScrollView } from "react-native"
 import { LinkedScrollView, LinkedScrollViewsProvider } from "."
 import { faker } from "@faker-js/faker"
+import { GlobalScrollableProps } from "./LinkedContext"
 
 const LinkedScrollViewDemo = () => {
 
@@ -21,24 +22,25 @@ const LinkedScrollViewDemo = () => {
     return (<View style={{ flex: 1, flexDirection: 'column', backgroundColor: 'gray' }} >
 
         <Text>联动 Demo</Text>
+     
         <LinkedScrollViewsProvider
-        horizontal={false} 
-        alwaysBounceVertical={true} 
-        propsOfGroupp={{ 'table': { horizontal: false, alwaysBounceVertical: false } }}
-           
+            horizontal={false}
+            alwaysBounceVertical={true}
+            propsOfGroup={{ 'table': { horizontal: false, alwaysBounceVertical: false } as GlobalScrollableProps } }
         >
 
-            <View style={{  flexDirection: 'row' }}>
-                <LinkedScrollView>
-                    {getItem()}
-                </LinkedScrollView>
-                <LinkedScrollView>
-                    {getItem()}
-                </LinkedScrollView>
-                <LinkedScrollView>
-                    {getItem()}
 
+            <View style={{ flexDirection: 'row'}}>
+                <LinkedScrollView>
+                <View>
+                {getItem()}
+                </View>
+                  
                 </LinkedScrollView>
+                <LinkedScrollView>
+                    {getItem()}
+                </LinkedScrollView>
+                
             </View>
 
         </LinkedScrollViewsProvider>
