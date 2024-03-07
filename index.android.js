@@ -27,6 +27,7 @@ AppRegistry.registerComponent( 'RnBasicDemo', () => RnBasicDemo, );
 AppRegistry.registerComponent( 'SnowBoxDemo', () => SnowBoxDemo, );
 AppRegistry.registerComponent( 'MemoDemo', () => MemoDemo, );
 AppRegistry.registerComponent( 'LifeCycle', () => LifeCycle, );
+AppRegistry.registerComponent( 'TestDemo', () => TestDemo, );
 AppRegistry.registerComponent( 'CustomHookDemo', () => CustomHookDemo, );
 AppRegistry.registerComponent( 'ViewHideShow', () => ViewHideShow, );
 AppRegistry.registerComponent( 'NativeModuleDemo', () => NativeModuleDemo, );

@@ -17,11 +17,13 @@ import RandomDisperse from "../RandomDisperse/RandomDisperse"
 import FadeInAnimation from "../Animation/FadeInAnimation"
 import { ToastDemo } from "./Toast"
 import LinkedScrollViewDemo from "../LinkedScrollView/LinkedScrollViewDemo"
+import { colorStrings } from "../../TsLearn/类型高级用法/props"
 /**
  * https://reactnative.dev/docs/components-and-apis
  * 
  */
 const RnComponentDemo = () => {
+
 
     return <View style={{ flex: 1 }}>
         {/* <RefreshControlDemo></RefreshControlDemo> */}
