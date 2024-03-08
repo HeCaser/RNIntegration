@@ -16,5 +16,8 @@ export class TsTestFunction {
         const keyArray = Object.keys(source).map(key => key)
         console.log(`keyArray = ${JSON.stringify(keyArray)}`)  // ["key","key1"]
 
+        // 可以利用 object 包含 key 的数量判断对象是否为空({})
+        let isEmpty = Object.keys(target).length === 0
+        console.log(`isEmpty = ${isEmpty}`)
     }
 }
