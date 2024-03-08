@@ -2,6 +2,7 @@ import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 import RnException from './pages/simulate_error/RnException.js'
 import NativeCallBack from './pages/native_call/index.tsx'
 import HomePage from './pages/homepage/index.js';
+import HomePage2 from './pages/homepage/HomePage2.tsx';
 import RnItem from './pages/RnItem/index.js';
 import RnItem2 from './pages/RnItem2/index.js';
 import ChartDemo from './pages/SVG/index.js';
@@ -17,6 +18,7 @@ import RandomDisperse from './pages/RnBasic/RandomDisperse/RandomDisperse.tsx';
 import RnComponentDemo from './pages/RnBasic/RnComponent/index.tsx'
 
 AppRegistry.registerComponent( 'HomePage', () => HomePage, );
+AppRegistry.registerComponent( 'HomePage2', () => HomePage2, );
 AppRegistry.registerComponent( 'RnException', () => RnException, );
 AppRegistry.registerComponent( 'NativeCallBack', () => NativeCallBack, );
 AppRegistry.registerComponent( 'RnItem', () => RnItem, );
