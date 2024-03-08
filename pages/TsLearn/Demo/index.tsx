@@ -9,8 +9,9 @@ export const TsLearnDemo = () => {
     
     const test = () => {
         // 注意: 当修改了 TsTestFunction 逻辑, 保存后不会立即生效, 需要修改本页面(UI 页面) 才会生效
-        TsTestFunction.test()
+        TsTestFunction.ObjectAPI() 
     }
+
     return (<View>
         <Text >TsLearnDemo</Text>
         <Button title="点击测试" onPress={()=>{
