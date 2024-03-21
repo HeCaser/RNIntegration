@@ -6,6 +6,7 @@ const ChildView = forwardRef((props, ref) => {
 
     const [activeTab, setActiveTab] = useState(0);
 
+    // 利用 useImperativeHandle 暴露方法和属性
     useImperativeHandle(ref, () => ({
         setActiveTab: (active: number) => {
             setActiveTab(active);
